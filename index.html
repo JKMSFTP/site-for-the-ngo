@@ -3,11 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jan Kalyan Maha Samiti | JKMS</title>
+    <title>Jan Kalyan Maha Samiti | Fatehpur, Uttar Pradesh</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <style>
         .hero-bg {
             background: linear-gradient(135deg, #991b1b 0%, #dc2626 100%);
+        }
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #b91c1c;
+            transform: translateY(-2px);
+        }
+        .gallery-img {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-img:hover {
+            transform: scale(1.08);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+        .modal {
+            animation: fadeInModal 0.3s ease forwards;
+        }
+        @keyframes fadeInModal {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
         }
     </style>
 </head>
@@ -15,153 +37,214 @@
 
     <!-- Navbar -->
     <nav class="bg-white shadow-sm sticky top-0 z-50 border-b border-red-100">
-        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center space-x-3">
-                <!-- Logo Path Placeholder -->
-                <img src="path/to/logo.png" alt="JKMS Logo" class="h-12 w-auto object-contain" onerror="this.style.display='none'; document.getElementById('logo-text').style.display='block';">
-                <span id="logo-text" class="text-xl font-black tracking-tight text-red-700 hidden">JKMS</span>
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <img id="logo" src="logo.svg" alt="JKMS Logo" class="h-14 w-auto object-contain">
+                <div>
+                    <span class="text-2xl font-bold text-red-700 tracking-tight">जन कल्याण</span>
+                    <span class="block text-xs text-gray-500 -mt-1">महासमिति</span>
+                </div>
             </div>
-            <div class="space-x-6 text-sm font-semibold">
-                <a href="#about" class="text-red-700 hover:text-red-500 transition">About Our Sanstha</a>
-                <a href="#director" class="text-gray-600 hover:text-red-600 transition">Director's Message</a>
-                <a href="#gallery" class="text-gray-600 hover:text-red-600 transition">Photo Gallery</a>
-                <a href="#contact" class="text-gray-600 hover:text-red-600 transition">Office Address</a>
+            <div class="flex items-center gap-8 text-sm font-medium">
+                <a href="#about" class="nav-link text-gray-700 hover:text-red-700">About Us</a>
+                <a href="#director" class="nav-link text-gray-700 hover:text-red-700">Director's Message</a>
+                <a href="#work" class="nav-link text-gray-700 hover:text-red-700">Our Work</a>
+                <a href="#gallery" class="nav-link text-gray-700 hover:text-red-700">Gallery</a>
+                <a href="#contact" class="nav-link text-gray-700 hover:text-red-700">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="hero-bg text-white py-20 px-4 text-center shadow-md">
-        <div class="max-w-3xl mx-auto">
-            <h1 class="text-4xl md:text-5xl font-black mb-4 tracking-tight">Jan Kalyan Maha Samiti</h1>
-            <p class="text-lg md:text-xl text-red-100 mb-8 font-medium">Serving Communities, Driving Transformation, Uplifting Lives Since 1988.</p>
-            <a href="#about" class="bg-white text-red-900 font-bold px-6 py-3 rounded-lg shadow hover:bg-red-50 transition tracking-wide text-sm uppercase">Our Profile</a>
+    <!-- Hero -->
+    <header class="hero-bg text-white py-24 md:py-32 text-center">
+        <div class="max-w-4xl mx-auto px-6">
+            <h1 class="text-5xl md:text-6xl font-bold tracking-tighter mb-6">Jan Kalyan Maha Samiti</h1>
+            <p class="text-xl md:text-2xl text-red-100 mb-8">Serving the marginalized communities of Fatehpur and beyond since 1988</p>
+            <a href="#about" class="inline-block bg-white text-red-800 font-semibold px-8 py-4 rounded-xl hover:bg-red-50 transition text-lg">
+                Know Our Journey
+            </a>
         </div>
     </header>
 
-    <!-- About Us Section (Big Unified Paragraph) -->
-    <section id="about" class="max-w-6xl mx-auto px-4 py-16">
-        <div class="bg-white rounded-2xl p-8 md:p-12 shadow-sm border border-gray-100">
-            <span class="text-red-600 text-xs font-bold uppercase tracking-widest block mb-2">Our Core Mission</span>
-            <h2 class="text-3xl font-black text-gray-900 mb-6">About Jan Kalyan Maha Samiti</h2>
-            <p class="text-gray-600 text-base md:text-lg leading-relaxed text-justify">
-                Established on <strong>January 26, 1988</strong>, and functioning continuously as a highly accountable registered <strong>Society</strong>, Jan Kalyan Maha Samiti (JKMS) has dedicated close to four decades toward absolute grassroots transformation across Uttar Pradesh. Operating out of Fatehpur, the society has built a robust framework centered strictly on long-term <strong>women's health, comprehensive childcare systems, and structured land development projects</strong>. Driven by the mission to convert social policy into sustainable reality, JKMS has executed wide-scale interventions including targeted health access infrastructure, critical maternal safety clinics, and agricultural land management programs designed to empower marginal farmers and rural housewives. Over the years, the organization has consistently stepped up to execute high-stakes welfare initiatives—ranging from intensive field-level health drives to specialized community security measures—consistently expanding its operational footprint across districts to reach underprivileged, isolated clusters with complete institutional transparency and unyielding social commitment.
-            </p>
-            <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 text-center pt-8 border-t border-gray-100">
-                <div>
-                    <span class="block text-2xl font-black text-red-600">1988</span>
-                    <span class="text-xs text-gray-500 font-medium uppercase tracking-wider">Inception</span>
+    <!-- About Us - Big Professional Paragraph -->
+    <section id="about" class="max-w-7xl mx-auto px-6 py-20">
+        <div class="grid md:grid-cols-12 gap-12 items-center">
+            <div class="md:col-span-7">
+                <span class="uppercase tracking-widest text-red-600 font-bold text-sm">Registered Society • Est. 1988</span>
+                <h2 class="text-4xl font-bold text-gray-900 mt-3 mb-8">About Jan Kalyan Maha Samiti</h2>
+                <div class="prose prose-lg text-gray-600 leading-relaxed">
+                    <p>Established on <strong>26th January 1988</strong>, Jan Kalyan Maha Samiti is a registered society dedicated to grassroots development and social welfare in Uttar Pradesh. For nearly four decades, we have worked tirelessly in the fields of <strong>women's health and empowerment</strong>, <strong>child care and protection</strong>, and <strong>land development and rights awareness</strong>.</p>
+                    <p>Operating primarily from Fatehpur, JKMS has successfully implemented numerous community-centric programs. We have partnered with various government departments and reputed organizations to strengthen public health systems, especially in the area of HIV/AIDS awareness and prevention. Our organization has been actively involved in Targeted Intervention (TI) programs in Fatehpur and Varanasi, worked with Apollo Foundation for trucker health programs, collaborated with Bhumi Sudhar Nigam for land-related initiatives, and extended Childline services across the state.</p>
+                    <p>Our core philosophy remains simple yet powerful — "Empowering communities to become self-reliant." Through sustained efforts in maternal and child health, women's skill development, livelihood support, and land resource management, we continue to bridge the gap between government schemes and the last mile beneficiaries.</p>
                 </div>
-                <div>
-                    <span class="block text-2xl font-black text-gray-900">Society</span>
-                    <span class="text-xs text-gray-500 font-medium uppercase tracking-wider">Legal Framework</span>
-                </div>
-                <div>
-                    <span class="block text-2xl font-black text-gray-900">Fatehpur</span>
-                    <span class="text-xs text-gray-500 font-medium uppercase tracking-wider">Base Location</span>
-                </div>
-                <div>
-                    <span class="block text-2xl font-black text-red-600">Active</span>
-                    <span class="text-xs text-gray-500 font-medium uppercase tracking-wider">Field Status</span>
+            </div>
+            <div class="md:col-span-5">
+                <div class="bg-white rounded-3xl shadow-xl p-8">
+                    <div class="grid grid-cols-2 gap-6 text-center">
+                        <div class="border border-red-100 rounded-2xl p-6">
+                            <div class="text-4xl font-bold text-red-600">1988</div>
+                            <div class="text-sm text-gray-500 mt-1">Year of Establishment</div>
+                        </div>
+                        <div class="border border-red-100 rounded-2xl p-6">
+                            <div class="text-4xl font-bold text-red-600">Society</div>
+                            <div class="text-sm text-gray-500 mt-1">Legal Status</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Director's Message Section -->
-    <section id="director" class="bg-white py-16 border-t border-b border-gray-100">
-        <div class="max-w-4xl mx-auto px-4">
-            <div class="text-center mb-10">
-                <span class="text-red-600 text-xs font-bold uppercase tracking-widest block mb-2">Leadership Perspective</span>
-                <h2 class="text-3xl font-black text-gray-900">Director's Message</h2>
+    <!-- Director's Message -->
+    <section id="director" class="bg-white py-20">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-900">Director's Message</h2>
             </div>
-            <div class="bg-gray-50 rounded-2xl p-8 md:p-10 border border-gray-200 shadow-sm relative">
-                <span class="text-6xl text-red-200 font-serif absolute top-4 left-6 pointer-events-none">“</span>
-                <div class="text-gray-700 leading-relaxed space-y-4 relative z-10">
-                    <p class="italic text-base md:text-lg">
-                        "Welcome to Jan Kalyan Maha Samiti. For over thirty-five years, our absolute priority has been turning policy into direct community impact. By driving structural healthcare awareness, implementing sound land development protocols, and working hand-in-hand with local frameworks, we aim to build self-sustaining ecosystems for everyone. Thank you for your continued belief in our journey."
-                    </p>
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <!-- Director Photo Placeholder -->
+                <div class="w-72 h-72 bg-gray-200 rounded-3xl flex-shrink-0 overflow-hidden border-4 border-red-100">
+                    <img src="director.jpg" alt="B.P. Pandey" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x400?text=B.P.+Pandey'">
                 </div>
-                <div class="mt-6 pt-6 border-t border-gray-200">
-                    <h4 class="font-bold text-gray-900 text-lg">B.P. Pandey</h4>
-                    <p class="text-xs text-red-600 font-bold uppercase tracking-wider">Director / Chief Functionary</p>
+                <div class="flex-1">
+                    <div class="italic text-xl leading-relaxed text-gray-700 border-l-4 border-red-600 pl-8">
+                        "For over 37 years, Jan Kalyan Maha Samiti has stood as a beacon of hope for the underprivileged sections of society. Our commitment to women's health, child welfare, and community development remains unwavering. We believe that real change begins at the grassroots level. Together, with the support of our community, government partners, and well-wishers, we shall continue building a more equitable and empowered society."
+                    </div>
+                    <div class="mt-8">
+                        <div class="font-bold text-2xl text-gray-900">B.P. Pandey</div>
+                        <div class="text-red-600 font-medium">Director & Chief Functionary</div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Photo Gallery (Exactly 25 Placeholder Items) -->
-    <section id="gallery" class="max-w-6xl mx-auto px-4 py-16">
-        <div class="text-center mb-10">
-            <span class="text-red-600 text-xs font-bold uppercase tracking-widest block mb-2">Field Impressions</span>
-            <h2 class="text-3xl font-black text-gray-900">Photo Gallery</h2>
-            <p class="text-sm text-gray-500 mt-2">A visual timeline of our operations, community gatherings, and regional field programs.</p>
-        </div>
-        
-        <!-- Grid layout: Just update the src paths below for your 25 photos -->
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-            <div class="overflow-hidden rounded-xl bg-gray-200 aspect-square"><img src="path/to/photo1.jpg" alt="Photo 1" class="w-full h-full object-cover hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/300'"></div>
-            <div class="overflow-hidden rounded-xl bg-gray-200 aspect-square"><img src="path/to/photo2.jpg" alt="Photo 2" class="w-full h-full object-cover hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/300'"></div>
-            <div class="overflow-hidden rounded-xl bg-gray-200 aspect-square"><img src="path/to/photo3.jpg" alt="Photo 3" class="w-full h-full object-cover hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/300'"></div>
-            <div class="overflow-hidden rounded-xl bg-gray-200 aspect-square"><img src="path/to/photo4.jpg" alt="Photo 4" class="w-full h-full object-cover hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/300'"></div>
-            <div class="overflow-hidden rounded-xl bg-gray-200 aspect-square"><img src="path/to/photo5.jpg" alt="Photo 5" class="w-full h-full object-cover hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/300'"></div>
-            <div class="overflow-hidden rounded-xl bg-gray-200 aspect-square"><img src="path/to/photo6.jpg" alt="Photo 6" class="w-full h-full object-cover hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/300'"></div>
-            <div class="overflow-hidden rounded-xl bg-gray-200 aspect-square"><img src="path/to/photo7.jpg" alt="Photo 7" class="w-full h-full object-cover hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/300'"></div>
-            <div class="overflow-hidden rounded-xl bg-gray-200 aspect-square"><img src="path/to/photo8.jpg" alt="Photo 8" class="w-full h-full object-cover hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/300'"></div>
-            <div class="overflow-hidden rounded-xl bg-gray-200 aspect-square"><img src="path/to/photo9.jpg" alt="Photo 9" class="w-full h-full object-cover hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/300'"></div>
-            <div class="overflow-hidden rounded-xl bg-gray-200 aspect-square"><img src="path/to/photo10.jpg" alt="Photo 10" class="w-full h-full object-cover hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/300'"></div>
-            <div class="overflow-hidden rounded-xl bg-gray-200 aspect-square"><img src="path/to/photo11.jpg" alt="Photo 11" class="w-full h-full object-cover hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/300'"></div>
-            <div class="overflow-hidden rounded-xl bg-gray-200 aspect-square"><img src="path/to/photo12.jpg" alt="Photo 12" class="w-full h-full object-cover hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/300'"></div>
-            <div class="overflow-hidden rounded-xl bg-gray-200 aspect-square"><img src="path/to/photo13.jpg" alt="Photo 13" class="w-full h-full object-cover hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/300'"></div>
-            <div class="overflow-hidden rounded-xl bg-gray-200 aspect-square"><img src="path/to/photo14.jpg" alt="Photo 14" class="w-full h-full object-cover hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/300'"></div>
-            <div class="overflow-hidden rounded-xl bg-gray-200 aspect-square"><img src="path/to/photo15.jpg" alt="Photo 15" class="w-full h-full object-cover hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/300'"></div>
-            <div class="overflow-hidden rounded-xl bg-gray-200 aspect-square"><img src="path/to/photo16.jpg" alt="Photo 16" class="w-full h-full object-cover hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/300'"></div>
-            <div class="overflow-hidden rounded-xl bg-gray-200 aspect-square"><img src="path/to/photo17.jpg" alt="Photo 17" class="w-full h-full object-cover hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/300'"></div>
-            <div class="overflow-hidden rounded-xl bg-gray-200 aspect-square"><img src="path/to/photo18.jpg" alt="Photo 18" class="w-full h-full object-cover hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/300'"></div>
-            <div class="overflow-hidden rounded-xl bg-gray-200 aspect-square"><img src="path/to/photo19.jpg" alt="Photo 19" class="w-full h-full object-cover hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/300'"></div>
-            <div class="overflow-hidden rounded-xl bg-gray-200 aspect-square"><img src="path/to/photo20.jpg" alt="Photo 20" class="w-full h-full object-cover hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/300'"></div>
-            <div class="overflow-hidden rounded-xl bg-gray-200 aspect-square"><img src="path/to/photo21.jpg" alt="Photo 21" class="w-full h-full object-cover hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/300'"></div>
-            <div class="overflow-hidden rounded-xl bg-gray-200 aspect-square"><img src="path/to/photo22.jpg" alt="Photo 22" class="w-full h-full object-cover hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/300'"></div>
-            <div class="overflow-hidden rounded-xl bg-gray-200 aspect-square"><img src="path/to/photo23.jpg" alt="Photo 23" class="w-full h-full object-cover hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/300'"></div>
-            <div class="overflow-hidden rounded-xl bg-gray-200 aspect-square"><img src="path/to/photo24.jpg" alt="Photo 24" class="w-full h-full object-cover hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/300'"></div>
-            <div class="overflow-hidden rounded-xl bg-gray-200 aspect-square"><img src="path/to/photo25.jpg" alt="Photo 25" class="w-full h-full object-cover hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/300'"></div>
+    <!-- Our Work -->
+    <section id="work" class="bg-gray-100 py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12">Our Key Interventions</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-3xl">
+                    <h3 class="font-bold text-xl mb-4 text-red-700">Women's Health & Empowerment</h3>
+                    <p class="text-gray-600">Focused maternal health programs, skill development, awareness campaigns, and economic empowerment initiatives for rural women.</p>
+                </div>
+                <div class="bg-white p-8 rounded-3xl">
+                    <h3 class="font-bold text-xl mb-4 text-red-700">Child Care & Protection</h3>
+                    <p class="text-gray-600">Active implementation of Childline services across Uttar Pradesh, ensuring safety, education, and holistic development of children.</p>
+                </div>
+                <div class="bg-white p-8 rounded-3xl">
+                    <h3 class="font-bold text-xl mb-4 text-red-700">Land Development & Livelihood</h3>
+                    <p class="text-gray-600">Collaboration with Bhumi Sudhar Nigam and other departments for land rights awareness and sustainable livelihood support.</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Contact & Map Location Section -->
-    <section id="contact" class="max-w-6xl mx-auto px-4 py-16 grid md:grid-cols-2 gap-8 items-stretch">
-        <!-- Address Deck -->
-        <div class="bg-white border border-gray-200 rounded-2xl p-8 flex flex-col justify-between shadow-sm">
+    <!-- Gallery with Modal -->
+    <section id="gallery" class="max-w-7xl mx-auto px-6 py-20">
+        <div class="flex justify-between items-end mb-12">
             <div>
-                <span class="text-red-600 text-xs font-bold uppercase tracking-widest block mb-2">Location Information</span>
-                <h2 class="text-2xl font-black text-gray-900 mb-6">Our Office Address</h2>
-                <div class="space-y-4 text-base">
-                    <p class="text-gray-700"><strong>Address:</strong><br>346 Cha, Krishna Colony, Near Gayatri Shakti Peeth, Harihar Ganj, Fatehpur, Uttar Pradesh - 212601</p>
-                    <p class="text-gray-700"><strong>Phone Number:</strong><br><a href="tel:+919415494036" class="text-red-600 font-bold hover:underline">+91 9415494036</a></p>
-                    <p class="text-gray-700"><strong>Official Email:</strong><br><a href="mailto:jkmsftp@gmail.com" class="text-red-600 font-bold hover:underline">jkmsftp@gmail.com</a></p>
-                </div>
+                <h2 class="text-4xl font-bold">Field Gallery</h2>
+                <p class="text-gray-600 mt-2">Moments from our journey across communities</p>
             </div>
-            <div class="mt-6 pt-6 border-t border-gray-100 text-xs text-gray-500 font-medium">
-                Timings: Mon - Sat (10:00 AM to 05:00 PM)
+            <button onclick="showAllPhotos()" class="text-red-600 font-medium flex items-center gap-2">
+                View All Photos <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4" id="gallery-grid">
+            <!-- JS will populate 25 images here -->
+        </div>
+    </section>
+
+    <!-- Contact + Map -->
+    <section id="contact" class="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12">
+        <div>
+            <h2 class="text-4xl font-bold mb-8">Get in Touch</h2>
+            <div class="space-y-6">
+                <div>
+                    <p class="font-medium text-gray-500">Office Address</p>
+                    <p class="text-lg">346 Cha, Krishna Colony,<br>Near Gayatri Shaktipeeth,<br>Harihar Ganj, Fatehpur, Uttar Pradesh - 212601</p>
+                </div>
+                <div>
+                    <p class="font-medium text-gray-500">Phone</p>
+                    <a href="tel:+919415494036" class="text-2xl font-semibold text-red-600 hover:underline">+91 94154 94036</a>
+                </div>
+                <div>
+                    <p class="font-medium text-gray-500">Email</p>
+                    <a href="mailto:jkmsftp@gmail.com" class="text-lg font-medium text-red-600 hover:underline">jkmsftp@gmail.com</a>
+                </div>
             </div>
         </div>
 
-        <!-- Embedded Interactive Google Map Widget targeting exact shared coordinates -->
-        <div class="w-full rounded-2xl overflow-hidden shadow-sm border border-gray-200 min-h-[350px]">
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3596.2238!2d80.8222386!3d25.9279589!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399c0717e17cb97f%3A0xcbde1e3d3fa171a8!2sGayatri%20Shaktipeeth%20Fatehpur!5e0!3m2!1sen!2sin!4v1717160000000!5m2!1sen!2sin" 
-                class="w-full h-full border-0 min-h-[350px]" 
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
+        <!-- Precise Google Map -->
+        <div class="rounded-3xl overflow-hidden shadow-2xl h-96 md:h-full min-h-[400px]">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3596.2238446261543!2d80.8222386!3d25.9279589!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399c0717e17cb97f%3A0xcbde1e3d3fa171a8!2sGayatri%20Shaktipeeth%20Fatehpur!5e0!3m2!1sen!2sin!4v1717160000000" 
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-400 py-6 text-center text-xs border-t border-gray-800">
-        <p>&copy; 2026 Jan Kalyan Maha Samiti. All Rights Reserved.</p>
+    <footer class="bg-gray-900 text-gray-400 py-12">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p>&copy; 2026 Jan Kalyan Maha Samiti, Fatehpur. All Rights Reserved.</p>
+            <p class="text-xs mt-2">A Registered Society dedicated to community development</p>
+        </div>
     </footer>
 
+    <!-- Photo Modal -->
+    <div id="photo-modal" class="hidden fixed inset-0 bg-black/90 z-[100] flex items-center justify-center p-4">
+        <div class="modal max-w-4xl w-full bg-white rounded-3xl overflow-hidden">
+            <div class="flex justify-between items-center p-4 border-b">
+                <h3 id="modal-title" class="font-medium">Photo</h3>
+                <button onclick="closeModal()" class="text-3xl leading-none">&times;</button>
+            </div>
+            <div class="p-4">
+                <img id="modal-image" src="" class="w-full rounded-2xl" alt="">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tailwind script already included via CDN
+        function populateGallery() {
+            const grid = document.getElementById('gallery-grid');
+            grid.innerHTML = '';
+            for (let i = 1; i <= 25; i++) {
+                const div = document.createElement('div');
+                div.className = 'aspect-square bg-gray-200 rounded-2xl overflow-hidden cursor-pointer';
+                div.innerHTML = `
+                    <img src="photos/photo${i}.jpg" 
+                         alt="Field Activity ${i}"
+                         class="gallery-img w-full h-full object-cover"
+                         onerror="this.src='https://placehold.co/600x600?text=JKMS+Photo+${i}'"
+                         onclick="openPhoto(this.src, this.alt)">
+                `;
+                grid.appendChild(div);
+            }
+        }
+
+        function openPhoto(src, alt) {
+            document.getElementById('modal-image').src = src;
+            document.getElementById('modal-title').textContent = alt;
+            document.getElementById('photo-modal').classList.remove('hidden');
+            document.getElementById('photo-modal').classList.add('flex');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('photo-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function showAllPhotos() {
+            document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Initialize
+        window.onload = function() {
+            populateGallery();
+        };
+    </script>
 </body>
 </html>
