@@ -35,14 +35,12 @@
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans antialiased">
 
-    <!-- Navbar -->
     <nav class="bg-white shadow-sm sticky top-0 z-50 border-b border-red-100">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center gap-3">
                 <img id="logo" src="WhatsApp Image 2026-05-31 at 6.03.34 PM.jpeg" alt="JKMS Logo" class="h-14 w-auto object-contain">
                 <div>
                     <span class="text-2xl font-bold text-red-700 tracking-tight">जन कल्याण महासमित </span>
-                   
                 </div>
             </div>
             <div class="flex items-center gap-8 text-sm font-medium">
@@ -55,7 +53,6 @@
         </div>
     </nav>
 
-    <!-- Hero -->
     <header class="hero-bg text-white py-24 md:py-32 text-center">
         <div class="max-w-4xl mx-auto px-6">
             <h1 class="text-5xl md:text-6xl font-bold tracking-tighter mb-6">Jan Kalyan Maha Samiti</h1>
@@ -66,7 +63,6 @@
         </div>
     </header>
 
-    <!-- About Us - Big Professional Paragraph -->
     <section id="about" class="max-w-7xl mx-auto px-6 py-20">
         <div class="grid md:grid-cols-12 gap-12 items-center">
             <div class="md:col-span-7">
@@ -95,14 +91,12 @@
         </div>
     </section>
 
-    <!-- Director's Message -->
     <section id="director" class="bg-white py-20">
         <div class="max-w-4xl mx-auto px-6">
             <div class="text-center mb-12">
                 <h2 class="text-4xl font-bold text-gray-900">Director's Message</h2>
             </div>
             <div class="flex flex-col md:flex-row gap-12 items-center">
-                <!-- Director Photo Placeholder -->
                 <div class="w-72 h-72 bg-gray-200 rounded-3xl flex-shrink-0 overflow-hidden border-4 border-red-100">
                     <img src="WhatsApp Image 2026-05-31 at 6.03.54 PM.jpeg" alt="B.P. Pandey" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x400?text=B.P.+Pandey'">
                 </div>
@@ -119,7 +113,6 @@
         </div>
     </section>
 
-    <!-- Our Work -->
     <section id="work" class="bg-gray-100 py-20">
         <div class="max-w-7xl mx-auto px-6">
             <h2 class="text-4xl font-bold text-center mb-12">Our Key Interventions</h2>
@@ -140,7 +133,6 @@
         </div>
     </section>
 
-    <!-- Gallery with Modal -->
     <section id="gallery" class="max-w-7xl mx-auto px-6 py-20">
         <div class="flex justify-between items-end mb-12">
             <div>
@@ -153,11 +145,9 @@
         </div>
 
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4" id="gallery-grid">
-            <!-- JS will populate 25 images here -->
-        </div>
+            </div>
     </section>
 
-    <!-- Contact + Map -->
     <section id="contact" class="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12">
         <div>
             <h2 class="text-4xl font-bold mb-8">Get in Touch</h2>
@@ -177,47 +167,48 @@
             </div>
         </div>
 
-        <!-- Precise Google Map -->
         <div class="rounded-3xl overflow-hidden shadow-2xl h-96 md:h-full min-h-[400px]">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3596.2238446261543!2d80.8222386!3d25.9279589!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399c0717e17cb97f%3A0xcbde1e3d3fa171a8!2sGayatri%20Shaktipeeth%20Fatehpur!5e0!3m2!1sen!2sin!4v1717160000000" 
-                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3596.2238446261543!2d80.8222386!3d25.9279589!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399c0717e17cb97f%3A0xcbde1e3d3fa171a8!2sGayatri%20Shaktipeeth%20Fatehpur!5e0!3m2!1sen!2sin!4v1717160000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-gray-900 text-gray-400 py-12">
         <div class="max-w-7xl mx-auto px-6 text-center">
-            <p>&copy; 2026 Jan Kalyan Maha Samiti, Fatehpur. All Rights Reserved.</p>
+            <p>© 2026 Jan Kalyan Maha Samiti, Fatehpur. All Rights Reserved.</p>
             <p class="text-xs mt-2">A Registered Society dedicated to community development</p>
         </div>
     </footer>
 
-    <!-- Photo Modal -->
     <div id="photo-modal" class="hidden fixed inset-0 bg-black/90 z-[100] flex items-center justify-center p-4">
         <div class="modal max-w-4xl w-full bg-white rounded-3xl overflow-hidden">
             <div class="flex justify-between items-center p-4 border-b">
                 <h3 id="modal-title" class="font-medium">Photo</h3>
-                <button onclick="closeModal()" class="text-3xl leading-none">&times;</button>
+                <button onclick="closeModal()" class="text-3xl leading-none">×</button>
             </div>
             <div class="p-4">
-                <img id="modal-image" src="" class="w-full rounded-2xl" alt="">
+                <img id="modal-image" src="" class="w-full rounded-2xl mx-auto max-h-[75vh] object-contain" alt="">
             </div>
         </div>
     </div>
 
     <script>
-        // Tailwind script already included via CDN
         function populateGallery() {
             const grid = document.getElementById('gallery-grid');
             grid.innerHTML = '';
+            
+            // Loop 25 times to generate the complete grid layout
             for (let i = 1; i <= 25; i++) {
+                // Dynamically map slots to target images j1.jpeg through j10.jpeg looping smoothly
+                const imgNum = ((i - 1) % 10) + 1; 
+                const imgSrc = `j${imgNum}.jpeg`;
+
                 const div = document.createElement('div');
                 div.className = 'aspect-square bg-gray-200 rounded-2xl overflow-hidden cursor-pointer';
                 div.innerHTML = `
-                    <img src="photos/photo${i}.jpg" 
-                         alt="Field Activity ${i}"
+                    <img src="${imgSrc}" 
+                         alt="Field Activity ${imgNum}"
                          class="gallery-img w-full h-full object-cover"
-                         onerror="this.src='https://placehold.co/600x600?text=JKMS+Photo+${i}'"
+                         onerror="this.src='https://placehold.co/600x600?text=JKMS+Photo+${imgNum}'"
                          onclick="openPhoto(this.src, this.alt)">
                 `;
                 grid.appendChild(div);
@@ -241,7 +232,6 @@
             document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Initialize
         window.onload = function() {
             populateGallery();
         };
