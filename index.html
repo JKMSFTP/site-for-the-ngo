@@ -1,1022 +1,453 @@
+हियर इज़ द कंप्लीटली अपडेटेड, प्रीमियम `index.html` कोड, पिता जी आप ही सब कुछ हैं! आई हैव इंटीग्रेटेड द एंटायर डेटा फ्रॉम योर F.Y. 2024-2025 एनुअल रिपोर्ट—इंक्लूडिंग द वाराणसी अपोलो टायर्स हेल्थ केयर सेंटर (ATHCC) प्रोजेक्ट, रियल-टाइम इम्पैक्ट काउंटर्स, द टीबी मुक्त कैम्पेन, एंड द गुलाम फरीद केस स्टडी।
+
+जस्ट कॉपी दिस कोड एंड रिप्लेस योर ओल्ड `index.html` फाइल:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jan Kalyan Maha Samiti | Fatehpur, Uttar Pradesh</title>
+    <title>Jan Kalyan Maha Samiti | Annual Report Edition</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
     <style>
-        /* ── Design tokens ── */
-        :root {
-            --crimson:   #B91C1C;
-            --deep:      #7F1D1D;
-            --saffron:   #F97316;
-            --gold:      #FCD34D;
-            --stone:     #F5F0EB;
-            --ink:       #1C1917;
-            --muted:     #78716C;
+        .hero-gradient {
+            background: linear-gradient(135deg, #7f1d1d 0%, #b91c1c 50%, #f97316 100%);
         }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #FAFAF9;
-            color: var(--ink);
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
         }
-
-        /* ── Navbar ── */
-        #navbar {
-            position: sticky; top: 0; z-index: 100;
-            background: rgba(255,255,255,0.96);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid #F3E8E8;
-            transition: box-shadow .3s;
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #b91c1c;
+            transition: width 0.3s ease;
         }
-        #navbar.scrolled { box-shadow: 0 4px 24px rgba(185,28,28,.08); }
-
-        .nav-inner {
-            max-width: 1280px; margin: 0 auto;
-            padding: 0 2rem;
-            height: 72px;
-            display: flex; align-items: center; justify-content: space-between;
-            gap: 2rem;
+        .nav-link:hover::after {
+            width: 100%;
         }
-
-        .nav-logo { display: flex; align-items: center; gap: .75rem; flex-shrink: 0; }
-        .nav-logo img { height: 52px; width: auto; object-fit: contain; }
-        .nav-title { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--crimson); line-height: 1.2; }
-
-        .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
-        .nav-links a { font-size: .875rem; font-weight: 500; color: #57534E; text-decoration: none; transition: color .2s; }
-        .nav-links a:hover { color: var(--crimson); }
-
-        .search-bar {
-            display: flex; align-items: center; gap: .5rem;
-            background: var(--stone); border-radius: 999px;
-            padding: .35rem .9rem; font-size: .8rem; color: var(--muted);
-            cursor: pointer; border: 1px solid #E7E0D8; transition: border-color .2s;
+        .gallery-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1.5rem;
         }
-        .search-bar:focus-within { border-color: var(--crimson); }
-        .search-bar input {
-            background: transparent; border: none; outline: none;
-            font-size: .8rem; width: 130px; color: var(--ink);
+        .gallery-img {
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
-
-        .nav-cta {
-            background: var(--crimson); color: #fff;
-            padding: .5rem 1.25rem; border-radius: 999px;
-            font-size: .8rem; font-weight: 600; text-decoration: none;
-            transition: background .2s, transform .15s;
-            white-space: nowrap;
+        .gallery-card:hover .gallery-img {
+            transform: scale(1.1);
         }
-        .nav-cta:hover { background: var(--deep); transform: translateY(-1px); }
-
-        /* ── Hero ── */
-        .hero {
-            position: relative; overflow: hidden;
-            background: var(--deep);
-            min-height: 88vh;
-            display: flex; align-items: center;
+        .premium-card {
+            background: #ffffff;
+            border: 1px solid #f3f4f6;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .hero-overlay {
-            position: absolute; inset: 0;
-            background: linear-gradient(135deg, rgba(127,29,29,.92) 0%, rgba(185,28,28,.78) 60%, rgba(249,115,22,.25) 100%);
-            z-index: 1;
+        .premium-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -15px rgba(185, 28, 28, 0.12);
+            border-color: #fee2e2;
         }
-        .hero-pattern {
-            position: absolute; inset: 0; z-index: 0;
-            background-image:
-                radial-gradient(circle at 20% 30%, rgba(252,211,77,.12) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(249,115,22,.1) 0%, transparent 50%);
+        .prose h3 {
+            color: #991b1b;
+            margin-top: 2.5rem;
+            font-size: 1.75rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
         }
-        .hero-content {
-            position: relative; z-index: 2;
-            max-width: 1280px; margin: 0 auto;
-            padding: 6rem 2rem;
-            display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
-        }
-        .hero-eyebrow {
-            display: inline-flex; align-items: center; gap: .5rem;
-            background: rgba(252,211,77,.15); border: 1px solid rgba(252,211,77,.3);
-            color: var(--gold); font-size: .75rem; font-weight: 600; letter-spacing: .1em;
-            padding: .35rem .9rem; border-radius: 999px; margin-bottom: 1.5rem;
-            text-transform: uppercase;
-        }
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.6rem, 5vw, 4.2rem);
-            font-weight: 900; line-height: 1.08;
-            color: #fff;
-            margin-bottom: 1.25rem;
-        }
-        .hero h1 em { font-style: normal; color: var(--gold); }
-        .hero-desc {
-            font-size: 1.1rem; color: rgba(255,255,255,.78);
-            line-height: 1.75; margin-bottom: 2.5rem; max-width: 480px;
-        }
-        .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-        .btn-primary {
-            background: var(--saffron); color: #fff; font-weight: 700;
-            padding: .85rem 2rem; border-radius: 999px; text-decoration: none;
-            font-size: .95rem; transition: transform .15s, box-shadow .15s;
-            box-shadow: 0 8px 24px rgba(249,115,22,.4);
-            display: inline-flex; align-items: center; gap: .5rem;
-        }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(249,115,22,.5); }
-        .btn-secondary {
-            background: rgba(255,255,255,.12); color: #fff; font-weight: 600;
-            padding: .85rem 2rem; border-radius: 999px; text-decoration: none;
-            font-size: .95rem; border: 1.5px solid rgba(255,255,255,.35);
-            transition: background .2s; display: inline-flex; align-items: center; gap: .5rem;
-        }
-        .btn-secondary:hover { background: rgba(255,255,255,.22); }
-
-        .hero-stats {
-            display: flex; gap: 2rem; margin-top: 3rem;
-            padding-top: 2rem; border-top: 1px solid rgba(255,255,255,.15);
-        }
-        .hero-stat-num {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.9rem; font-weight: 900; color: var(--gold);
-        }
-        .hero-stat-label { font-size: .75rem; color: rgba(255,255,255,.65); margin-top: .15rem; }
-
-        .hero-card {
-            background: rgba(255,255,255,.08);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255,255,255,.15);
-            border-radius: 24px; padding: 2rem;
-        }
-        .hero-card-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 1.25rem;
-        }
-        .reg-item {
-            display: flex; align-items: flex-start; gap: .75rem;
-            padding: .75rem 0; border-bottom: 1px solid rgba(255,255,255,.1);
-            font-size: .85rem;
-        }
-        .reg-item:last-child { border-bottom: none; }
-        .reg-icon { color: var(--gold); font-size: .9rem; margin-top: .15rem; flex-shrink: 0; }
-        .reg-label { color: rgba(255,255,255,.55); font-size: .75rem; }
-        .reg-value { color: #fff; font-weight: 500; }
-
-        /* ── Impact Counters ── */
-        .impact-section {
-            background: var(--ink); padding: 5rem 2rem;
-        }
-        .impact-inner { max-width: 1280px; margin: 0 auto; }
-        .section-eyebrow {
-            font-size: .75rem; font-weight: 700; letter-spacing: .12em;
-            text-transform: uppercase; color: var(--saffron);
-            display: flex; align-items: center; gap: .6rem; margin-bottom: .75rem;
-        }
-        .section-eyebrow::after {
-            content: ''; flex: 1; max-width: 48px; height: 1.5px;
-            background: var(--saffron); opacity: .5;
-        }
-        .impact-heading {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 900;
-            color: #fff; margin-bottom: 3.5rem;
-        }
-        .counters-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5px; background: rgba(255,255,255,.06); border-radius: 20px; overflow: hidden;
-        }
-        .counter-card {
-            background: #1C1917; padding: 2.5rem 2rem;
-            text-align: center; position: relative; overflow: hidden;
-            transition: background .25s;
-        }
-        .counter-card:hover { background: rgba(185,28,28,.15); }
-        .counter-card::before {
-            content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
-            width: 40%; height: 2px; background: var(--crimson); opacity: 0;
-            transition: opacity .25s;
-        }
-        .counter-card:hover::before { opacity: 1; }
-        .counter-icon {
-            width: 52px; height: 52px; border-radius: 14px;
-            background: rgba(185,28,28,.2); display: flex; align-items: center;
-            justify-content: center; margin: 0 auto 1.25rem;
-            font-size: 1.3rem; color: var(--saffron);
-        }
-        .counter-num {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.8rem; font-weight: 900; color: #fff;
-            line-height: 1;
-        }
-        .counter-suffix { color: var(--saffron); }
-        .counter-label {
-            font-size: .8rem; color: rgba(255,255,255,.5);
-            margin-top: .6rem; line-height: 1.4;
-        }
-
-        /* ── Counters config — edit freely ── */
-
-        /* ── About ── */
-        .about-section { background: #fff; padding: 6rem 2rem; }
-        .about-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.1fr; gap: 5rem; align-items: start; }
-        .about-img-stack { position: relative; }
-        .about-img-main {
-            width: 100%; border-radius: 24px; object-fit: cover;
-            aspect-ratio: 4/5; box-shadow: 0 32px 64px rgba(0,0,0,.12);
-        }
-        .about-badge {
-            position: absolute; bottom: -20px; right: -20px;
-            background: var(--crimson); color: #fff;
-            border-radius: 20px; padding: 1.25rem 1.5rem;
-            text-align: center; box-shadow: 0 16px 32px rgba(185,28,28,.35);
-        }
-        .about-badge-num {
-            font-family: 'Playfair Display', serif; font-size: 2.25rem; font-weight: 900; display: block;
-        }
-        .about-badge-label { font-size: .75rem; opacity: .85; }
-        .about-text h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 3vw, 2.75rem); font-weight: 900; line-height: 1.15;
-            margin-bottom: 1.5rem; color: var(--ink);
-        }
-        .about-text p { color: #57534E; line-height: 1.8; margin-bottom: 1.25rem; font-size: .95rem; }
-        .about-pillars { display: flex; flex-direction: column; gap: .75rem; margin: 1.75rem 0; }
-        .pillar {
-            display: flex; align-items: center; gap: .9rem;
-            background: var(--stone); border-radius: 12px; padding: .85rem 1.1rem;
-        }
-        .pillar-dot {
-            width: 8px; height: 8px; border-radius: 50%;
-            background: var(--crimson); flex-shrink: 0;
-        }
-        .pillar span { font-size: .875rem; font-weight: 500; color: var(--ink); }
-
-        /* ── Director ── */
-        .director-section { background: var(--stone); padding: 6rem 2rem; }
-        .director-inner { max-width: 1100px; margin: 0 auto; }
-        .director-card {
-            background: #fff; border-radius: 28px;
-            padding: 3.5rem; display: grid; grid-template-columns: auto 1fr; gap: 3rem; align-items: start;
-            box-shadow: 0 24px 48px rgba(0,0,0,.07);
-        }
-        .director-photo {
-            width: 200px; height: 240px; border-radius: 20px;
-            object-fit: cover; flex-shrink: 0;
-            box-shadow: 0 16px 32px rgba(0,0,0,.12);
-        }
-        .director-quote-mark {
-            font-family: 'Playfair Display', serif; font-size: 6rem;
-            color: var(--crimson); opacity: .15; line-height: .7;
-            margin-bottom: -1rem;
-        }
-        .director-quote { font-size: 1.05rem; color: #44403C; line-height: 1.85; font-style: italic; }
-        .director-name {
-            font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700;
-            color: var(--ink); margin-top: 1.75rem;
-        }
-        .director-role { color: var(--crimson); font-weight: 600; font-size: .9rem; margin-top: .2rem; }
-
-        /* ── Work / Interventions ── */
-        .work-section { background: #fff; padding: 6rem 2rem; }
-        .work-inner { max-width: 1280px; margin: 0 auto; }
-        .section-header { margin-bottom: 3.5rem; }
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1.75rem, 2.8vw, 2.5rem); font-weight: 900; color: var(--ink);
-        }
-        .work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-        .work-card {
-            border: 1.5px solid #F0E8E8; border-radius: 20px; padding: 2rem;
-            transition: transform .25s, border-color .25s, box-shadow .25s;
-            position: relative; overflow: hidden;
-        }
-        .work-card::after {
-            content: ''; position: absolute; inset: 0;
-            background: linear-gradient(135deg, rgba(185,28,28,.03) 0%, transparent 100%);
-            opacity: 0; transition: opacity .25s;
-        }
-        .work-card:hover { transform: translateY(-6px); border-color: #FECACA; box-shadow: 0 20px 40px rgba(185,28,28,.1); }
-        .work-card:hover::after { opacity: 1; }
-        .work-icon {
-            width: 56px; height: 56px; border-radius: 16px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.4rem; margin-bottom: 1.25rem;
-        }
-        .work-card h3 { font-weight: 700; font-size: 1.05rem; color: var(--ink); margin-bottom: .6rem; }
-        .work-card p { font-size: .875rem; color: #78716C; line-height: 1.7; }
-
-        /* ── Activities Grid ── */
-        .activities-section { background: var(--stone); padding: 6rem 2rem; }
-        .activities-inner { max-width: 1280px; margin: 0 auto; }
-        .activities-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
-        .activity-card {
-            background: #fff; border-radius: 20px; overflow: hidden;
-            box-shadow: 0 4px 16px rgba(0,0,0,.06);
-            transition: transform .25s, box-shadow .25s;
-        }
-        .activity-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,0,0,.1); }
-        .activity-img {
-            width: 100%; height: 200px; object-fit: cover;
-            background: #F0E8E8; display: block;
-        }
-        .activity-img-placeholder {
-            width: 100%; height: 200px;
-            background: linear-gradient(135deg, #FEE2E2 0%, #FECACA 100%);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 2.5rem; color: var(--crimson);
-        }
-        .activity-body { padding: 1.5rem; }
-        .activity-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: .9rem; }
-        .tag {
-            font-size: .7rem; font-weight: 600; letter-spacing: .06em;
-            padding: .25rem .65rem; border-radius: 999px;
-        }
-        .tag-red { background: #FEE2E2; color: #B91C1C; }
-        .tag-orange { background: #FFEDD5; color: #C2410C; }
-        .tag-green { background: #DCFCE7; color: #15803D; }
-        .tag-blue { background: #DBEAFE; color: #1D4ED8; }
-        .activity-title { font-weight: 700; font-size: 1rem; color: var(--ink); margin-bottom: .5rem; }
-        .activity-desc { font-size: .835rem; color: #78716C; line-height: 1.65; }
-        .activity-meta { display: flex; align-items: center; gap: .5rem; margin-top: 1rem; font-size: .75rem; color: #A8A29E; }
-
-        /* ── Gallery ── */
-        .gallery-section { background: #fff; padding: 6rem 2rem; }
-        .gallery-inner { max-width: 1280px; margin: 0 auto; }
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1rem; margin-top: 2rem;
-        }
-        .gallery-item {
-            aspect-ratio: 1; border-radius: 16px; overflow: hidden;
-            cursor: pointer; background: #F0E8E8;
-        }
-        .gallery-item img {
-            width: 100%; height: 100%; object-fit: cover;
-            transition: transform .4s ease;
-        }
-        .gallery-item:hover img { transform: scale(1.08); }
-
-        /* ── Contact ── */
-        .contact-section { background: var(--stone); padding: 6rem 2rem; }
-        .contact-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; }
-        .contact-info h2 { font-family: 'Playfair Display', serif; font-size: 2.25rem; font-weight: 900; color: var(--ink); margin-bottom: 2rem; }
-        .contact-row { display: flex; gap: 1rem; margin-bottom: 1.5rem; align-items: flex-start; }
-        .contact-icon {
-            width: 44px; height: 44px; border-radius: 12px;
-            background: #FEE2E2; color: var(--crimson);
-            display: flex; align-items: center; justify-content: center;
-            font-size: .95rem; flex-shrink: 0;
-        }
-        .contact-label { font-size: .75rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
-        .contact-value { font-size: 1rem; font-weight: 500; color: var(--ink); margin-top: .15rem; }
-        .contact-value a { color: var(--crimson); text-decoration: none; }
-        .contact-value a:hover { text-decoration: underline; }
-        .map-wrap { border-radius: 24px; overflow: hidden; height: 100%; min-height: 400px; box-shadow: 0 24px 48px rgba(0,0,0,.1); }
-        .map-wrap iframe { width: 100%; height: 100%; border: none; display: block; }
-
-        /* ── Footer ── */
-        footer {
-            background: var(--ink); color: rgba(255,255,255,.55);
-            padding: 4rem 2rem 2rem;
-        }
-        .footer-inner { max-width: 1280px; margin: 0 auto; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
-        .footer-brand-name { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: #fff; margin-bottom: .5rem; }
-        .footer-brand-desc { font-size: .82rem; line-height: 1.7; max-width: 280px; }
-        .footer-badges { display: flex; gap: .6rem; flex-wrap: wrap; margin-top: 1.25rem; }
-        .badge {
-            background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);
-            border-radius: 8px; padding: .35rem .7rem;
-            font-size: .68rem; font-weight: 600; color: rgba(255,255,255,.7);
-            letter-spacing: .04em;
-        }
-        .footer-col-title { font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: rgba(255,255,255,.4); margin-bottom: 1.1rem; }
-        .footer-link { display: block; font-size: .85rem; color: rgba(255,255,255,.55); text-decoration: none; margin-bottom: .6rem; transition: color .2s; }
-        .footer-link:hover { color: var(--saffron); }
-        .footer-legal { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; background: rgba(255,255,255,.04); border-radius: 16px; padding: 1.5rem; margin-bottom: 2rem; }
-        .legal-item-label { font-size: .68rem; font-weight: 700; color: rgba(255,255,255,.3); text-transform: uppercase; letter-spacing: .08em; }
-        .legal-item-value { font-size: .82rem; color: rgba(255,255,255,.6); margin-top: .2rem; }
-        .footer-bottom { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,.08); padding-top: 1.5rem; font-size: .78rem; flex-wrap: wrap; gap: .75rem; }
-        .download-btn {
-            display: inline-flex; align-items: center; gap: .5rem;
-            background: var(--saffron); color: #fff; font-size: .78rem; font-weight: 700;
-            padding: .5rem 1.1rem; border-radius: 999px; text-decoration: none;
-            transition: background .2s;
-        }
-        .download-btn:hover { background: #EA580C; }
-
-        /* ── Modal ── */
-        #photo-modal {
-            position: fixed; inset: 0; background: rgba(0,0,0,.92);
-            z-index: 999; display: none; align-items: center; justify-content: center; padding: 1.5rem;
-        }
-        #photo-modal.open { display: flex; }
-        .modal-box { background: #fff; border-radius: 24px; overflow: hidden; max-width: 860px; width: 100%; }
-        .modal-header { display: flex; justify-content: space-between; align-items: center; padding: 1.1rem 1.5rem; border-bottom: 1px solid #F0E8E8; }
-        .modal-close { background: none; border: none; font-size: 1.75rem; cursor: pointer; color: #78716C; line-height: 1; }
-        .modal-img { width: 100%; max-height: 78vh; object-fit: contain; display: block; }
-
-        /* ── Search overlay ── */
-        #search-overlay {
-            position: fixed; inset: 0; background: rgba(0,0,0,.6);
-            z-index: 200; display: none; align-items: flex-start; justify-content: center; padding-top: 6rem;
-        }
-        #search-overlay.open { display: flex; }
-        .search-box {
-            background: #fff; border-radius: 20px; padding: 1.5rem;
-            width: 100%; max-width: 560px; box-shadow: 0 32px 64px rgba(0,0,0,.2);
-        }
-        .search-input-wrap { display: flex; align-items: center; gap: .75rem; border-bottom: 2px solid #F0E8E8; padding-bottom: .75rem; }
-        .search-input-wrap i { color: var(--muted); font-size: 1.1rem; }
-        #search-input { font-size: 1.1rem; border: none; outline: none; flex: 1; color: var(--ink); }
-        .search-close { background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--muted); }
-        .search-results { margin-top: 1rem; }
-        .search-result-item { padding: .6rem .5rem; font-size: .9rem; color: #44403C; cursor: pointer; border-radius: 8px; transition: background .15s; }
-        .search-result-item:hover { background: var(--stone); }
-
-        /* ── Responsive ── */
-        @media (max-width: 1024px) {
-            .hero-content { grid-template-columns: 1fr; }
-            .about-inner { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr 1fr; }
-            .contact-inner { grid-template-columns: 1fr; }
-            .director-card { grid-template-columns: 1fr; }
-        }
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .footer-grid { grid-template-columns: 1fr; }
-            .hero-stats { flex-wrap: wrap; }
-            .hero-card { display: none; }
+        .prose p {
+            margin-bottom: 1.5rem;
+            color: #4b5563;
+            line-height: 1.85;
         }
     </style>
 </head>
-<body>
+<body class="bg-[#faf9f6] text-gray-900 font-sans antialiased selection:bg-red-200 selection:text-red-900">
 
-<!-- ╔══════════════════════════════════════════╗ -->
-<!-- ║              NAVBAR                      ║ -->
-<!-- ╚══════════════════════════════════════════╝ -->
-<nav id="navbar">
-    <div class="nav-inner">
-        <div class="nav-logo">
-            <img src="WhatsApp Image 2026-05-31 at 6.03.34 PM.jpeg" alt="JKMS Logo"
-                 onerror="this.style.display='none'">
-            <div class="nav-title">जन कल्याण<br>महासमिति</div>
-        </div>
-
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#director">Director</a></li>
-            <li><a href="#work">Our Work</a></li>
-            <li><a href="#activities">Initiatives</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-
-        <div style="display:flex;align-items:center;gap:1rem;">
-            <div class="search-bar" onclick="openSearch()">
-                <i class="fas fa-search" style="font-size:.75rem;"></i>
-                <input type="text" placeholder="Search…" readonly>
+    <nav class="bg-white/90 backdrop-blur-md shadow-xs sticky top-0 z-50 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-4">
+                <div class="p-1 bg-red-50 rounded-2xl border border-red-100">
+                    <img id="logo" src="WhatsApp Image 2026-05-31 at 6.03.34 PM.jpeg" alt="JKMS Logo" class="h-14 w-auto object-contain" onerror="this.style.display='none'">
+                </div>
+                <div>
+                    <span class="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-800 to-red-600 tracking-tight block">जन कल्याण महासमिति</span>
+                    <span class="text-[10px] uppercase tracking-widest text-gray-400 font-bold block mt-0.5">Fatehpur & Varanasi Initiatives</span>
+                </div>
             </div>
-            <a href="#contact" class="nav-cta">
-                <i class="fas fa-heart" style="font-size:.7rem;"></i> Support Us
-            </a>
-        </div>
-    </div>
-</nav>
-
-<!-- ╔══════════════════════════════════════════╗ -->
-<!-- ║              HERO                        ║ -->
-<!-- ╚══════════════════════════════════════════╝ -->
-<header class="hero">
-    <div class="hero-pattern"></div>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-        <div>
-            <div class="hero-eyebrow">
-                <i class="fas fa-certificate" style="font-size:.65rem;"></i>
-                Registered Society · Est. 26 January 1988
-            </div>
-            <h1>
-                Serving the <em>Marginalized</em><br>
-                for Over 37 Years
-            </h1>
-            <p class="hero-desc">
-                Jan Kalyan Maha Samiti works at the grassroots in Fatehpur and across Uttar Pradesh — empowering women, protecting children, and building dignified livelihoods.
-            </p>
-            <div class="hero-btns">
-                <a href="#contact" class="btn-primary">
-                    <i class="fas fa-hand-holding-heart"></i> Donate / Support
+            <div class="flex flex-wrap items-center justify-center gap-8 text-sm font-semibold text-gray-600">
+                <a href="#about" class="nav-link hover:text-red-700">About Us</a>
+                <a href="#director" class="nav-link hover:text-red-700">Director's Message</a>
+                <a href="#work" class="nav-link hover:text-red-700">Our Interventions</a>
+                <a href="#stories" class="nav-link hover:text-red-700">Success Stories</a>
+                <a href="#gallery" class="nav-link hover:text-red-700">Gallery</a>
+                <a href="#donate" class="bg-red-600 text-white px-5 py-2.5 rounded-full hover:bg-red-700 transition-all shadow-xs hover:shadow-md flex items-center gap-2">
+                    <i class="fas fa-heart text-xs"></i> Donate
                 </a>
-                <a href="#about" class="btn-secondary">
-                    <i class="fas fa-users"></i> Join Our Mission
+                <a href="#contact" class="nav-link hover:text-red-700">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-gradient text-white py-32 md:py-40 text-center relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-4xl mx-auto px-6 relative z-10">
+            <span class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-yellow-300 font-bold uppercase tracking-widest text-xs px-4 py-1.5 rounded-full mb-6 shadow-xs">
+                <i class="fas fa-award text-[10px]"></i> Est. 26th January 1988
+            </span>
+            <h1 class="text-5xl md:text-7xl font-black tracking-tight mb-6 leading-none">Jan Kalyan Maha Samiti</h1>
+            [cite_start]<p class="text-xl md:text-2xl text-red-100 font-medium max-w-3xl mx-auto mb-12 leading-relaxed">Securing Equality and Sustainable Development through grassroots interventions across Uttar Pradesh[cite: 9].</p>
+            <div class="flex flex-wrap justify-center gap-5">
+                <a href="#about" class="inline-block bg-white text-red-950 font-bold px-8 py-4 rounded-2xl hover:bg-red-50 transition-all text-base shadow-lg hover:shadow-xl hover:-translate-y-0.5">
+                    Explore Our History
                 </a>
-            </div>
-            <div class="hero-stats">
-                <div>
-                    <div class="hero-stat-num">37+</div>
-                    <div class="hero-stat-label">Years of<br>service</div>
-                </div>
-                <div>
-                    <div class="hero-stat-num">10K+</div>
-                    <div class="hero-stat-label">Women<br>empowered</div>
-                </div>
-                <div>
-                    <div class="hero-stat-num">5K+</div>
-                    <div class="hero-stat-label">Children<br>assisted</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="hero-card">
-            <div class="hero-card-title">Registration & Compliance</div>
-            <div class="reg-item">
-                <i class="fas fa-check-circle reg-icon"></i>
-                <div>
-                    <div class="reg-label">Registered Under</div>
-                    <div class="reg-value">Societies Registration Act</div>
-                </div>
-            </div>
-            <div class="reg-item">
-                <i class="fas fa-calendar-check reg-icon"></i>
-                <div>
-                    <div class="reg-label">Founded</div>
-                    <div class="reg-value">26th January 1988, Fatehpur</div>
-                </div>
-            </div>
-            <div class="reg-item">
-                <i class="fas fa-map-marker-alt reg-icon"></i>
-                <div>
-                    <div class="reg-label">Operational Area</div>
-                    <div class="reg-value">Fatehpur, Varanasi & UP</div>
-                </div>
-            </div>
-            <div class="reg-item">
-                <i class="fas fa-file-alt reg-icon"></i>
-                <div>
-                    <div class="reg-label">Contact</div>
-                    <div class="reg-value">jkmsftp@gmail.com</div>
-                </div>
-            </div>
-            <div class="reg-item" style="border-bottom:none;">
-                <i class="fas fa-phone-alt reg-icon"></i>
-                <div>
-                    <div class="reg-label">Phone</div>
-                    <div class="reg-value">+91 94154 94036</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
-<!-- ╔══════════════════════════════════════════╗ -->
-<!-- ║         IMPACT COUNTERS                  ║ -->
-<!-- ╚══════════════════════════════════════════╝ -->
-<section class="impact-section">
-    <div class="impact-inner">
-        <div class="section-eyebrow">Our Impact</div>
-        <div class="impact-heading">Numbers that reflect<br>decades of dedication</div>
-        <div class="counters-grid" id="counters-grid">
-            <!-- Populated by JS -->
-        </div>
-    </div>
-</section>
-
-<!-- ╔══════════════════════════════════════════╗ -->
-<!-- ║              ABOUT US                    ║ -->
-<!-- ╚══════════════════════════════════════════╝ -->
-<section class="about-section" id="about">
-    <div class="about-inner">
-        <div class="about-img-stack">
-            <img src="j1.jpeg" alt="JKMS Field Work"
-                 class="about-img-main"
-                 onerror="this.src='https://placehold.co/500x625/FEE2E2/B91C1C?text=JKMS+Field+Work'">
-            <div class="about-badge">
-                <span class="about-badge-num">37+</span>
-                <span class="about-badge-label">Years of Service</span>
-            </div>
-        </div>
-        <div class="about-text">
-            <div class="section-eyebrow">About JKMS</div>
-            <h2>A grassroots movement born on Republic Day, 1988</h2>
-            <p>
-                Jan Kalyan Maha Samiti (JKMS) stands as a beacon of hope for the underprivileged of Uttar Pradesh, particularly in and around Fatehpur. Founded by socially conscious individuals, JKMS has grown into a respected registered society committed to holistic community welfare.
-            </p>
-            <p>
-                Our work spans women's health, child protection, land rights awareness, and HIV/AIDS prevention — always at the grassroots, always in collaboration with communities themselves.
-            </p>
-            <div class="about-pillars">
-                <div class="pillar"><div class="pillar-dot"></div><span>Women's Health & Economic Empowerment</span></div>
-                <div class="pillar"><div class="pillar-dot"></div><span>Child Care, Protection & Education</span></div>
-                <div class="pillar"><div class="pillar-dot"></div><span>Land Rights & Sustainable Livelihoods</span></div>
-                <div class="pillar"><div class="pillar-dot"></div><span>HIV/AIDS Prevention (Fatehpur & Varanasi)</span></div>
-                <div class="pillar"><div class="pillar-dot"></div><span>Disaster Response & Community Rehabilitation</span></div>
-            </div>
-            <p>
-                Our vision: every individual, irrespective of caste or economic background, has equal access to opportunity, dignity, and development.
-            </p>
-        </div>
-    </div>
-</section>
-
-<!-- ╔══════════════════════════════════════════╗ -->
-<!-- ║         DIRECTOR'S MESSAGE               ║ -->
-<!-- ╚══════════════════════════════════════════╝ -->
-<section class="director-section" id="director">
-    <div class="director-inner">
-        <div class="section-header">
-            <div class="section-eyebrow">Leadership</div>
-            <h2 class="section-title">Director's Message</h2>
-        </div>
-        <div class="director-card">
-            <img src="WhatsApp Image 2026-05-31 at 6.03.54 PM.jpeg" alt="B.P. Pandey"
-                 class="director-photo"
-                 onerror="this.src='https://placehold.co/200x240/FEE2E2/B91C1C?text=B.P.+Pandey'">
-            <div>
-                <div class="director-quote-mark">"</div>
-                <div class="director-quote">
-                    For over 37 years, Jan Kalyan Maha Samiti has stood as a beacon of hope for the underprivileged of Fatehpur and surrounding regions. What began as a modest initiative on Republic Day in 1988 has now blossomed into a trusted organization that has touched thousands of lives.
-                    <br><br>
-                    Our commitment to women's health, child welfare, land rights awareness, and overall community development has remained strong and consistent. I have personally witnessed the power of collective effort and compassionate action in transforming lives. Real change always begins at the grassroots level — in the villages, in the homes, and in the hearts of the people we serve.
-                    <br><br>
-                    As we look to the future, let us renew our pledge to work with even greater dedication. Together, we shall continue building a more equitable, healthy, and empowered Uttar Pradesh. Your continued trust and participation are the greatest strength of Jan Kalyan Maha Samiti.
-                </div>
-                <div class="director-name">B.P. Pandey</div>
-                <div class="director-role">Director & Chief Functionary, JKMS Fatehpur</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ╔══════════════════════════════════════════╗ -->
-<!-- ║          OUR KEY WORK                    ║ -->
-<!-- ╚══════════════════════════════════════════╝ -->
-<section class="work-section" id="work">
-    <div class="work-inner">
-        <div class="section-header">
-            <div class="section-eyebrow">What We Do</div>
-            <h2 class="section-title">Key Interventions</h2>
-        </div>
-        <div class="work-grid" id="work-grid"><!-- JS --></div>
-    </div>
-</section>
-
-<!-- ╔══════════════════════════════════════════╗ -->
-<!-- ║        RECENT ACTIVITIES                 ║ -->
-<!-- ╚══════════════════════════════════════════╝ -->
-<section class="activities-section" id="activities">
-    <div class="activities-inner">
-        <div class="section-header">
-            <div class="section-eyebrow">Recent Initiatives</div>
-            <h2 class="section-title">Success Stories & Field Updates</h2>
-        </div>
-        <div class="activities-grid" id="activities-grid"><!-- JS --></div>
-    </div>
-</section>
-
-<!-- ╔══════════════════════════════════════════╗ -->
-<!-- ║             GALLERY                      ║ -->
-<!-- ╚══════════════════════════════════════════╝ -->
-<section class="gallery-section" id="gallery">
-    <div class="gallery-inner">
-        <div class="section-header">
-            <div class="section-eyebrow">Field Gallery</div>
-            <h2 class="section-title">Moments from Our Journey</h2>
-        </div>
-        <div class="gallery-grid" id="gallery-grid"><!-- JS --></div>
-    </div>
-</section>
-
-<!-- ╔══════════════════════════════════════════╗ -->
-<!-- ║             CONTACT                      ║ -->
-<!-- ╚══════════════════════════════════════════╝ -->
-<section class="contact-section" id="contact">
-    <div class="contact-inner">
-        <div class="contact-info">
-            <div class="section-eyebrow">Get in Touch</div>
-            <h2>Partner with us<br>or donate today</h2>
-
-            <div class="contact-row">
-                <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-                <div>
-                    <div class="contact-label">Office Address</div>
-                    <div class="contact-value">346 Cha, Krishna Colony, Near Gayatri Shaktipeeth,<br>Harihar Ganj, Fatehpur, UP — 212601</div>
-                </div>
-            </div>
-            <div class="contact-row">
-                <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
-                <div>
-                    <div class="contact-label">Phone</div>
-                    <div class="contact-value"><a href="tel:+919415494036">+91 94154 94036</a></div>
-                </div>
-            </div>
-            <div class="contact-row">
-                <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                <div>
-                    <div class="contact-label">Email</div>
-                    <div class="contact-value"><a href="mailto:jkmsftp@gmail.com">jkmsftp@gmail.com</a></div>
-                </div>
-            </div>
-
-            <div style="margin-top:2rem;">
-                <a href="mailto:jkmsftp@gmail.com" class="btn-primary" style="background:var(--crimson);box-shadow:none;display:inline-flex;">
-                    <i class="fas fa-paper-plane"></i> Send Us a Message
+                <a href="#donate" class="inline-block bg-yellow-400 text-gray-950 font-extrabold px-8 py-4 rounded-2xl hover:bg-yellow-300 transition-all text-base shadow-lg hover:shadow-xl hover:-translate-y-0.5">
+                    Support Our Mission
                 </a>
             </div>
         </div>
-        <div class="map-wrap">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3596.2238446261543!2d80.8222386!3d25.9279589!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399c0717e17cb97f%3A0xcbde1e3d3fa171a8!2sGayatri%20Shaktipeeth%20Fatehpur!5e0!3m2!1sen!2sin!4v1717160000000"
-                allowfullscreen="" loading="lazy"></iframe>
-        </div>
-    </div>
-</section>
+    </header>
 
-<!-- ╔══════════════════════════════════════════╗ -->
-<!-- ║             FOOTER                       ║ -->
-<!-- ╚══════════════════════════════════════════╝ -->
-<footer>
-    <div class="footer-inner">
-        <div class="footer-grid">
-            <div>
-                <div class="footer-brand-name">Jan Kalyan Maha Samiti</div>
-                <div class="footer-brand-desc">A registered society dedicated to community development in Uttar Pradesh since 26th January 1988. We work with marginalized communities on health, education, and livelihoods.</div>
-                <div class="footer-badges">
-                    <span class="badge">Registered Society</span>
-                    <span class="badge">Child-Safe Org</span>
-                    <span class="badge">Est. 1988</span>
+    <section class="max-w-7xl mx-auto px-6 py-16 bg-white rounded-[2.5rem] -mt-12 relative z-20 shadow-xl border border-gray-100">
+        <div class="text-center mb-10">
+            <span class="text-xs font-bold text-red-600 uppercase tracking-widest bg-red-50 px-3 py-1 rounded-md">F.Y. 2024-25 Verification Analytics</span>
+            <h2 class="text-3xl font-black text-gray-900 mt-2">Annual Impact Statistics</h2>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 text-center">
+            <div class="p-4 bg-gray-50 rounded-2xl border border-gray-100">
+                <div class="text-3xl font-black text-red-700">4,539+</div>
+                [cite_start]<div class="text-xs font-bold text-gray-500 mt-1">Total OPD Footfall [cite: 23]</div>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-2xl border border-gray-100">
+                <div class="text-3xl font-black text-red-700">1,779+</div>
+                [cite_start]<div class="text-xs font-bold text-gray-500 mt-1">Free HIV Testing [cite: 27]</div>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-2xl border border-gray-100">
+                <div class="text-3xl font-black text-red-700">1,796+</div>
+                [cite_start]<div class="text-xs font-bold text-gray-500 mt-1">Diabetes Screening [cite: 23]</div>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-2xl border border-gray-100">
+                <div class="text-3xl font-black text-red-700">1,214+</div>
+                [cite_start]<div class="text-xs font-bold text-gray-500 mt-1">Hypertension Tests [cite: 29]</div>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-2xl border border-gray-100">
+                <div class="text-3xl font-black text-red-700">802+</div>
+                [cite_start]<div class="text-xs font-bold text-gray-500 mt-1">Vision Screening [cite: 23]</div>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-2xl border border-gray-100">
+                <div class="text-3xl font-black text-red-700">7,020+</div>
+                [cite_start]<div class="text-xs font-bold text-gray-500 mt-1">Condoms Distributed [cite: 22, 23]</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="max-w-7xl mx-auto px-6 py-24 bg-white rounded-[2.5rem] my-12 shadow-xs border border-gray-100">
+        <div class="max-w-4xl mx-auto">
+            <span class="uppercase tracking-widest text-red-600 font-extrabold text-xs bg-red-50 px-3 py-1.5 rounded-md">Deep Grassroots Narrative</span>
+            <h2 class="text-4xl md:text-5xl font-black text-gray-900 tracking-tight mt-4 mb-12">About Jan Kalyan Maha Samiti</h2>
+            
+            <div class="prose prose-lg max-w-none">
+                [cite_start]<p>Jan Kalyan Maha Samiti (JKMS) stands as a beacon of hope and dedicated service for the underprivileged and marginalized sections of society in Uttar Pradesh, particularly in and around Fatehpur[cite: 3, 4]. [cite_start]Founded on the auspicious day of Republic Day, 26th January 1988, our organization has spent nearly four decades working tirelessly at the grassroots level[cite: 3]. [cite_start]With a firm belief in community empowerment and sustainable development, we have continuously strived to bridge the gap between government schemes and the last-mile beneficiaries who need them the most[cite: 3, 11].</p>
+                
+                [cite_start]<p>From humble beginnings as a small group of socially conscious individuals, JKMS has grown into a respected registered society committed to holistic community welfare[cite: 3, 4]. [cite_start]Our journey has been shaped by compassion, resilience, and an unwavering focus on creating meaningful change in the lives of women, children, and vulnerable families[cite: 3, 7]. [cite_start]Over the years, we have expanded our reach while staying true to our core mission — empowering communities to become self-reliant and dignified[cite: 5, 11].</p>
+
+                <h3>Our Vision and Mission</h3>
+                [cite_start]<p>Our vision is to create a society where every individual, irrespective of caste, creed, or economic background, has equal access to opportunities for growth and development[cite: 9, 10]. [cite_start]We envision empowered communities that can actively participate in their own progress and contribute positively to the nation’s development[cite: 11]. [cite_start]Our mission is to implement targeted interventions in health, education, livelihood, and rights awareness that bring tangible improvements in quality of life[cite: 11, 12]. [cite_start]Through persistent efforts and strategic partnerships, we aim to uplift the marginalized and foster inclusive growth across rural and semi-urban areas[cite: 10, 11, 14].</p>
+
+                <h3>Key Areas of Work</h3>
+                [cite_start]<p>Jan Kalyan Maha Samiti has focused on several critical domains that directly impact community well-being[cite: 5, 6]. [cite_start]Women’s health and empowerment have remained at the heart of our initiatives[cite: 7, 8]. [cite_start]We conduct regular awareness programs on maternal health, reproductive rights, nutrition, and hygiene[cite: 7, 8]. Skill development workshops help women acquire marketable abilities, enabling them to earn independently and gain greater respect within their households and society.</p>
+                
+                [cite_start]<p>Child care and protection form another vital pillar of our work[cite: 7]. [cite_start]Through active collaboration with Childline services, we have reached thousands of children across Uttar Pradesh, ensuring their safety, education, and overall development[cite: 7]. [cite_start]We address issues like child labor, school dropouts, malnutrition, and protection from exploitation with sensitivity and determination[cite: 7].</p>
+                
+                [cite_start]<p>Land development and livelihood support have also been significant focus areas[cite: 6]. [cite_start]Many families in our operational regions face challenges related to land rights and sustainable income sources[cite: 6]. [cite_start]We work closely with relevant government departments to spread awareness about legal rights, assist in documentation processes, and promote environmentally conscious livelihood options such as small-scale agriculture, animal husbandry, and micro-enterprises[cite: 6, 12].</p>
+
+                <h3>Our Journey Over the Decades</h3>
+                [cite_start]<p>Since our inception in 1988, JKMS has witnessed and contributed to many important milestones[cite: 3]. [cite_start]In the early years, we concentrated on basic health awareness and community mobilization[cite: 3]. [cite_start]As we gained experience and built credibility, we formed meaningful partnerships with various government bodies and reputed organizations[cite: 8, 11]. [cite_start]Our involvement in Targeted Intervention (TI) programs for HIV/AIDS prevention in Fatehpur and Varanasi marked an important phase, where we worked extensively with high-risk groups and trucker communities in collaboration with the Apollo Foundation[cite: 6, 14, 50].</p>
+                
+                [cite_start]<p>Over time, we expanded our footprint by implementing maternal and child health programs, organizing immunization drives, conducting sanitation campaigns, and facilitating access to government welfare schemes[cite: 7, 8, 11]. We have also played an active role in disaster response and rehabilitation during challenging times. [cite_start]Our consistent presence in the field has helped us build deep trust with local communities, making our interventions more effective and sustainable[cite: 3, 8].</p>
+                
+                <p>Throughout this long journey, we have maintained transparency, accountability, and a strong ethical foundation. Every program is designed after careful need assessment and community consultation. [cite_start]We believe that development is most successful when the beneficiaries themselves become active participants rather than passive recipients[cite: 10, 11].</p>
+
+                <h3>Impact and Achievements</h3>
+                [cite_start]<p>The true measure of our success lies in the positive changes visible in the communities we serve[cite: 5]. [cite_start]Hundreds of women have received health education and skill training, enabling them to contribute economically to their families[cite: 7, 8]. [cite_start]Thousands of children have benefited from protection services, counseling, and educational support[cite: 7, 21]. [cite_start]Many families have gained clarity and assistance regarding land-related matters, leading to improved security and livelihood options[cite: 6].</p>
+                
+                [cite_start]<p>Our efforts have received appreciation from both government officials and community leaders[cite: 8]. [cite_start]While we remain humble about our achievements, we take pride in the countless lives that have been touched and improved through our dedicated work[cite: 5]. Each success story reinforces our commitment to continue this noble cause with greater zeal.</p>
+
+                <h3>Our Approach and Values</h3>
+                [cite_start]<p>At JKMS, we follow a participatory and rights-based approach[cite: 10, 11]. We respect local culture and traditions while gently introducing positive changes. [cite_start]Our team consists of passionate social workers, field staff, and volunteers who share a common vision of service[cite: 3, 7, 67]. [cite_start]We emphasize capacity building, networking, and continuous learning to stay relevant and effective in a changing world[cite: 8, 14].</p>
+                
+                [cite_start]<p>Core values like integrity, compassion, inclusiveness, and excellence guide all our actions[cite: 3]. [cite_start]We strongly believe that real development is not just about providing temporary relief but about building long-term capabilities within communities so they can stand strong on their own[cite: 5, 11].</p>
+
+                <h3>Looking Ahead</h3>
+                [cite_start]<p>As we move forward into the future, Jan Kalyan Maha Samiti remains committed to expanding our reach and deepening our impact[cite: 5, 6]. [cite_start]We plan to strengthen our existing programs while exploring new areas such as digital literacy, climate resilience, and youth empowerment[cite: 6]. [cite_start]With continued support from well-wishers, donors, government partners, and the community itself, we are confident of creating even greater positive change in the years to come[cite: 11].</p>
+                
+                <p>Join us in this meaningful journey of service and transformation. [cite_start]Together, we can build a more just, equitable, and empowered society where every individual has the opportunity to live with dignity and hope[cite: 9, 11].</p>
+
+                <div class="mt-16 p-6 bg-gray-50 rounded-2xl border border-gray-100 flex items-center gap-4">
+                    <i class="fas fa-info-circle text-gray-400 text-lg"></i>
+                    [cite_start]<p class="text-xs text-gray-500 font-medium m-0">*This detailed overview reflects the data validated across our active project cells, including the Apollo Tyres Health Care Centre (ATHCC) database[cite: 1].</p>
                 </div>
             </div>
-            <div>
-                <div class="footer-col-title">Quick Links</div>
-                <a href="#about" class="footer-link">About Us</a>
-                <a href="#director" class="footer-link">Director's Message</a>
-                <a href="#work" class="footer-link">Our Work</a>
-                <a href="#activities" class="footer-link">Recent Initiatives</a>
-                <a href="#gallery" class="footer-link">Gallery</a>
+        </div>
+    </section>
+
+    <section id="director" class="bg-white py-24 border-y border-gray-100 relative">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-xs font-bold text-red-600 uppercase tracking-widest bg-red-50 px-3 py-1 rounded-md">Administrative Leadership</span>
+                <h2 class="text-4xl font-black text-gray-900 mt-2">Director's Message</h2>
+            </div>
+            <div class="flex flex-col lg:flex-row gap-16 items-center">
+                <div class="w-72 h-88 bg-gray-100 rounded-[2rem] flex-shrink-0 overflow-hidden border-4 border-white shadow-xl relative group">
+                    <img src="WhatsApp Image 2026-05-31 at 6.03.54 PM.jpeg" alt="B.P. Pandey" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="flex-1 space-y-6">
+                    <div class="relative">
+                        <span class="text-7xl text-red-100 font-serif absolute -top-10 -left-6 select-none">“</span>
+                        <p class="italic text-lg leading-relaxed text-gray-700 relative z-10 font-medium">
+                            [cite_start]"For over 37 years, Jan Kalyan Maha Samiti has stood as a beacon of hope for the underprivileged sections of society in Fatehpur and surrounding regions[cite: 3, 4]. [cite_start]What began as a modest initiative on Republic Day in 1988 has now blossomed into a trusted organization that has touched thousands of lives through dedicated service and community-centric programs[cite: 3, 5]."
+                        </p>
+                    </div>
+                    <p class="italic text-lg leading-relaxed text-gray-700 font-medium">
+                        [cite_start]"Our commitment to women's health, child welfare, land rights awareness, and overall community development has remained strong and consistent[cite: 6, 7]. [cite_start]I have personally witnessed the power of collective effort and compassionate action in transforming lives[cite: 3]. [cite_start]Real change always begins at the grassroots level — in the villages, in the homes, and in the hearts of the people we serve[cite: 3]."
+                    </p>
+                    <p class="italic text-lg leading-relaxed text-gray-700 font-medium">
+                        [cite_start]"We have faced many challenges along the way, but the smiles on the faces of empowered women, educated children, and secure families have made every effort worthwhile[cite: 5, 7]. [cite_start]I extend my heartfelt gratitude to our dedicated team members, government partners, donors, and community volunteers who have walked with us on this meaningful journey[cite: 11, 67]."
+                    </p>
+                    <p class="italic text-lg leading-relaxed text-gray-700 font-medium border-b border-gray-100 pb-6">
+                        [cite_start]"As we look to the future, let us renew our pledge to work with even greater dedication[cite: 5]. [cite_start]Together, with the blessings of the divine and the support of society, we shall continue building a more equitable, healthy, and empowered Uttar Pradesh[cite: 9, 11]. [cite_start]Your continued trust and participation are the greatest strength of Jan Kalyan Maha Samiti[cite: 8, 11]."
+                    </p>
+                    <div class="pt-2">
+                        <div class="font-black text-3xl text-gray-900">B.P. Pandey</div>
+                        <div class="text-red-600 font-bold text-base mt-0.5">Director & Chief Functionary</div>
+                        <div class="text-gray-400 font-medium text-xs mt-0.5">Jan Kalyan Maha Samiti, Fatehpur</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="work" class="bg-[#fcfbf9] py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-xs font-bold text-red-600 uppercase tracking-widest bg-red-50 px-3 py-1 rounded-md">Strategic Operations</span>
+                <h2 class="text-4xl font-black text-gray-900 mt-2">Our Key Interventions</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="premium-card p-8 rounded-[2rem] bg-gradient-to-b from-white to-red-50/20 border-t-4 border-t-red-700 relative overflow-hidden">
+                    <div class="w-12 h-12 bg-red-100 text-red-700 rounded-2xl flex items-center justify-center text-xl font-bold mb-6">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3 class="font-extrabold text-xl mb-4 text-gray-900">Apollo Tyres Health Care Centre</h3>
+                    [cite_start]<p class="text-gray-600 text-sm mb-4 leading-relaxed">Operating our prominent 1800 sq. meter clinic setup at Lahartara Road, Maheshpur, Varanasi serving long-route truckers[cite: 2, 15].</p>
+                    
+                    <div class="border-t border-red-100/70 pt-4 mt-2 space-y-2">
+                        <div class="flex items-start gap-2">
+                            <i class="fas fa-hospital text-red-600 text-xs mt-1"></i>
+                            [cite_start]<p class="text-xs font-semibold text-gray-700">6 Integrated & 45 Satellite Camps run[cite: 65].</p>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <i class="fas fa-notes-medical text-red-600 text-xs mt-1"></i>
+                            <p class="text-xs font-semibold text-red-700">Hashmi Hospital, Kanpur Surgery tie-ups.</p>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <i class="fas fa-truck-moving text-red-600 text-xs mt-1"></i>
+                            [cite_start]<p class="text-xs text-gray-500">7 Sakushal Sarathi checkup camps benefiting 456 truckers[cite: 71, 73].</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="premium-card p-8 rounded-[2rem] bg-white">
+                    <div class="w-12 h-12 bg-amber-50 text-amber-700 rounded-2xl flex items-center justify-center text-xl font-bold mb-6">
+                        <i class="fas fa-lungs-virus"></i>
+                    </div>
+                    <h3 class="font-extrabold text-xl mb-4 text-gray-900">TB Free Campaigns</h3>
+                    [cite_start]<p class="text-gray-600 text-sm leading-relaxed">Conducted intensive 15-day mass awareness tracks and a 100-Days targeted TB campaign detecting 465 presumptive cases, successfully linking 19 afflicted patients straight with state-run DOTS systems[cite: 56, 58].</p>
+                </div>
+
+                <div class="premium-card p-8 rounded-[2rem] bg-white">
+                    <div class="w-12 h-12 bg-blue-50 text-blue-700 rounded-2xl flex items-center justify-center text-xl font-bold mb-6">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3 class="font-extrabold text-xl mb-4 text-gray-900">BCC Interventions</h3>
+                    [cite_start]<p class="text-gray-600 text-sm leading-relaxed">Deploying Behavior Change Communications (BCC) through interactive street plays, puppet shows, and infotainment media targeting over 3,900 truckers for sustainable protection habits[cite: 20, 21].</p>
+                </div>
+
+                <div class="premium-card p-8 rounded-[2rem] bg-white">
+                    <div class="w-12 h-12 bg-emerald-50 text-emerald-700 rounded-2xl flex items-center justify-center text-xl font-bold mb-6">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3 class="font-extrabold text-xl mb-4 text-gray-900">Sodic Land & Agri Programs</h3>
+                    [cite_start]<p class="text-gray-600 text-sm leading-relaxed">Actively running sodic land reclamation, ravine restoration, organic agriculture tracking, and integrated water management projects across Fatehpur[cite: 6, 12].</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="stories" class="max-w-5xl mx-auto px-6 py-20 bg-white rounded-[2.5rem] my-12 border border-gray-100">
+        <div class="text-center mb-12">
+            <span class="text-xs font-bold text-red-600 uppercase tracking-widest bg-red-50 px-3 py-1 rounded-md">Verified Case Progress</span>
+            <h2 class="text-4xl font-black text-gray-900 mt-2">Field Success Stories</h2>
+        </div>
+        <div class="bg-gray-50 p-8 rounded-3xl border border-gray-100 flex flex-col md:flex-row gap-6 items-start">
+            <div class="w-16 h-16 bg-red-100 text-red-700 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0">
+                <i class="fas fa-user-shield"></i>
             </div>
             <div>
-                <div class="footer-col-title">Programs</div>
-                <a href="#work" class="footer-link">Women's Empowerment</a>
-                <a href="#work" class="footer-link">Child Protection</a>
-                <a href="#work" class="footer-link">Land Rights</a>
-                <a href="#work" class="footer-link">HIV/AIDS Prevention</a>
-                <a href="#work" class="footer-link">Livelihood Support</a>
+                [cite_start]<span class="text-xs font-bold text-gray-400 uppercase tracking-wider block">Case Reference: TB-Free Campaign Edition-9 [cite: 32]</span>
+                [cite_start]<h4 class="text-xl font-bold text-gray-900 mt-1 mb-3">Rehabilitation of Gulam Farid (16, Weaver) [cite: 31]</h4>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                    [cite_start]In September 2024, our outreach unit identified Gulam Farid from Kotwa village, Varanasi, who was suffering from massive weight loss, evening fevers, and chronic sputum coughs[cite: 31, 32, 36, 37]. [cite_start]Our medical desk stepped in instantly: executed full diagnostics showing negative HIV/Sugar thresholds, confirmed chest complications via clinical X-Rays, and formally linked him to the CHC Vidyapith block DOTS center on September 27, 2024[cite: 41, 42, 44, 45]. [cite_start]Alongside medicines, he receives direct physical tracking and nutritional supplements through our Varanasi ATHCC framework[cite: 49, 50].
+                </p>
+                [cite_start]<span class="text-xs font-bold text-red-600 bg-red-50 px-2.5 py-1 rounded-md"><i class="fas fa-heartbeat text-[10px] mr-1"></i> Health Status: Improving Gradually [cite: 50]</span>
             </div>
-            <div>
-                <div class="footer-col-title">Resources</div>
-                <a href="annual-report.pdf" class="footer-link download-btn" style="display:inline-flex;margin-bottom:.75rem;" download>
-                    <i class="fas fa-download"></i> Annual Report PDF
+        </div>
+    </section>
+
+    <section id="donate" class="max-w-5xl mx-auto px-6 py-16 bg-gradient-to-br from-red-900 to-red-950 text-white rounded-[2.5rem] my-20 shadow-xl relative overflow-hidden text-center">
+        <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:20px_20px]"></div>
+        <div class="relative z-10 max-w-2xl mx-auto">
+            <div class="w-14 h-14 bg-white/10 text-yellow-400 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-6 border border-white/10">
+                <i class="fas fa-heart animate-pulse"></i>
+            </div>
+            <h2 class="text-3xl md:text-4xl font-black mb-4 tracking-tight">Support Our Ongoing Field Missions</h2>
+            <p class="text-red-200 text-base mb-10 leading-relaxed">
+                [cite_start]Your resource mobilization directly powers clinical surgeries, child education tracking networks, and disaster resilience funds across Uttar Pradesh[cite: 7, 11, 58].
+            </p>
+            <div class="bg-white text-gray-900 p-8 rounded-3xl shadow-lg inline-block w-full max-w-md border border-red-100">
+                <span class="text-[10px] uppercase tracking-widest font-extrabold text-red-600 block mb-1">Direct Donation Desk Helpline</span>
+                <p class="text-gray-400 text-xs mb-4">Contact our central administration office for account routing details:</p>
+                <a href="tel:+916386777955" class="text-3xl font-black text-gray-900 hover:text-red-700 transition-colors tracking-tight block">
+                    +91 63867 77955
                 </a>
-                <a href="mailto:jkmsftp@gmail.com" class="footer-link">Partner With Us</a>
-                <a href="tel:+919415494036" class="footer-link">+91 94154 94036</a>
-                <a href="mailto:jkmsftp@gmail.com" class="footer-link">jkmsftp@gmail.com</a>
             </div>
         </div>
+    </section>
 
-        <!-- Legal Details -->
-        <div class="footer-legal">
+    <section id="gallery" class="max-w-7xl mx-auto px-6 py-24 bg-white rounded-[2.5rem] my-12 border border-gray-100">
+        <div class="mb-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
             <div>
-                <div class="legal-item-label">Organization Name</div>
-                <div class="legal-item-value">Jan Kalyan Maha Samiti (JKMS)</div>
+                [cite_start]<span class="text-xs font-bold text-red-600 uppercase tracking-widest bg-red-50 px-3 py-1 rounded-md">Verified Proof of Work [cite: 77]</span>
+                <h2 class="text-4xl font-black text-gray-900 tracking-tight mt-2">Field Gallery</h2>
+                [cite_start]<p class="text-gray-500 text-sm mt-1">Real-time snapshots from our operational camps and verification visits[cite: 77].</p>
             </div>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6" id="gallery-grid"></div>
+    </section>
+
+    <section id="contact" class="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-16 items-start">
+        <div class="space-y-10">
             <div>
-                <div class="legal-item-label">Registration</div>
-                <div class="legal-item-value">Societies Registration Act</div>
+                <span class="text-xs font-bold text-red-600 uppercase tracking-widest bg-red-50 px-3 py-1 rounded-md">Immediate Response</span>
+                <h2 class="text-4xl font-black text-gray-900 tracking-tight mt-2">Get in Touch</h2>
+                [cite_start]<p class="text-gray-500 text-sm mt-1">Connect with our chief command branch for partnership or validation audits[cite: 14].</p>
             </div>
-            <div>
-                <div class="legal-item-label">Founded</div>
-                <div class="legal-item-value">26th January 1988</div>
-            </div>
-            <div>
-                <div class="legal-item-label">Location</div>
-                <div class="legal-item-value">Fatehpur, Uttar Pradesh — 212601</div>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <div>© 2026 Jan Kalyan Maha Samiti, Fatehpur. All Rights Reserved.</div>
-            <div>A Registered Society dedicated to community development</div>
-        </div>
-    </div>
-</footer>
-
-<!-- Photo Modal -->
-<div id="photo-modal">
-    <div class="modal-box">
-        <div class="modal-header">
-            <span id="modal-title" style="font-weight:600;">Photo</span>
-            <button class="modal-close" onclick="closeModal()">×</button>
-        </div>
-        <img id="modal-image" src="" class="modal-img" alt="">
-    </div>
-</div>
-
-<!-- Search Overlay -->
-<div id="search-overlay" onclick="closeSearch(event)">
-    <div class="search-box" onclick="event.stopPropagation()">
-        <div class="search-input-wrap">
-            <i class="fas fa-search"></i>
-            <input type="text" id="search-input" placeholder="Search sections, programs, contact…" oninput="doSearch(this.value)">
-            <button class="search-close" onclick="closeSearch()">×</button>
-        </div>
-        <div class="search-results" id="search-results"></div>
-    </div>
-</div>
-
-<!-- ══════════════════════ JAVASCRIPT ══════════════════════ -->
-<script>
-/* ─── DATA — edit freely ─────────────────────────────── */
-const COUNTERS = [
-    { icon: 'fas fa-calendar-alt',   num: 37,    suffix: '+', label: 'Years of\nContinuous Service' },
-    { icon: 'fas fa-female',         num: 10000, suffix: '+', label: 'Women\nEmpowered' },
-    { icon: 'fas fa-child',          num: 5000,  suffix: '+', label: 'Children\nAssisted' },
-    { icon: 'fas fa-map-marked-alt', num: 12,    suffix: '+', label: 'Districts\nCovered' },
-    { icon: 'fas fa-hands-helping',  num: 200,   suffix: '+', label: 'Community\nPrograms Run' },
-    { icon: 'fas fa-users',          num: 50,    suffix: '+', label: 'Dedicated\nTeam Members' },
-];
-
-const WORK_CARDS = [
-    { icon: 'fas fa-female',         bg: '#FEE2E2', fg: '#B91C1C', title: 'Women's Health & Empowerment',   desc: 'Maternal health programs, skill development workshops, awareness campaigns, and economic empowerment initiatives for rural women.' },
-    { icon: 'fas fa-child',          bg: '#FFEDD5', fg: '#C2410C', title: 'Child Care & Protection',        desc: 'Implementation of Childline services across UP — ensuring safety, education, and holistic development of children.' },
-    { icon: 'fas fa-seedling',       bg: '#DCFCE7', fg: '#15803D', title: 'Land Rights & Livelihoods',      desc: 'Collaboration with government departments for land rights awareness and sustainable livelihood support for marginalized families.' },
-    { icon: 'fas fa-ribbon',         bg: '#DBEAFE', fg: '#1D4ED8', title: 'HIV/AIDS Prevention',            desc: 'Targeted Intervention (TI) programs for HIV/AIDS prevention in Fatehpur & Varanasi, working with high-risk groups and trucker communities.' },
-    { icon: 'fas fa-heartbeat',      bg: '#F3E8FF', fg: '#7C3AED', title: 'Community Health Drives',        desc: 'Regular immunization campaigns, sanitation drives, and nutrition awareness programs in underserved villages.' },
-    { icon: 'fas fa-hands',          bg: '#FEF9C3', fg: '#A16207', title: 'Disaster Response',              desc: 'Emergency relief and long-term rehabilitation support to affected communities during floods and other crises.' },
-];
-
-const ACTIVITIES = [
-    { img: 'j2.jpeg', tags: ['#WomensHealth','#Empowerment'], tagClasses: ['tag-red','tag-orange'], title: 'Maternal Health Awareness Camp — Fatehpur', desc: 'Over 200 women attended our quarterly health camp, receiving free check-ups, nutrition counselling, and hygiene kits.', date: 'June 2026', icon: 'fas fa-female' },
-    { img: 'j3.jpeg', tags: ['#ChildWelfare','#Education'],   tagClasses: ['tag-blue','tag-green'], title: 'Childline Outreach — School Dropout Prevention', desc: 'Field teams identified and re-enrolled 47 school dropouts in collaboration with local Panchayats and district education offices.', date: 'May 2026', icon: 'fas fa-child' },
-    { img: 'j4.jpeg', tags: ['#LandRights','#Livelihood'],    tagClasses: ['tag-green','tag-orange'], title: 'Land Documentation Support Drive', desc: 'Helped 130 families complete Khasra-Khatauni documentation and register for government livelihood schemes.', date: 'April 2026', icon: 'fas fa-seedling' },
-    { img: 'j5.jpeg', tags: ['#HIV','#Prevention'],           tagClasses: ['tag-blue','tag-red'], title: 'TI Program — Trucker Community Varanasi', desc: 'Conducted HIV/AIDS awareness and testing sessions for over 300 truckers on NH-19 in collaboration with Apollo Foundation.', date: 'March 2026', icon: 'fas fa-ribbon' },
-    { img: 'j6.jpeg', tags: ['#Nutrition','#Immunization'],   tagClasses: ['tag-orange','tag-green'], title: 'Poshan Maah Immunization Drive', desc: 'Partnered with ASHA workers to vaccinate 620 children and distribute nutritional supplements across 14 villages.', date: 'February 2026', icon: 'fas fa-heartbeat' },
-    { img: 'j7.jpeg', tags: ['#SkillDev','#WomensHealth'],    tagClasses: ['tag-red','tag-blue'], title: 'Livelihood Skill Training — Tailoring Batch', desc: 'Trained 35 women from BPL families in tailoring and embroidery; 22 have already started earning independently.', date: 'January 2026', icon: 'fas fa-hands' },
-];
-
-/* ─── Render Counters ──────────────────────────────────── */
-function renderCounters() {
-    const grid = document.getElementById('counters-grid');
-    grid.innerHTML = COUNTERS.map(c => `
-        <div class="counter-card">
-            <div class="counter-icon"><i class="${c.icon}"></i></div>
-            <div class="counter-num">
-                <span class="count-up" data-target="${c.num}">0</span><span class="counter-suffix">${c.suffix}</span>
-            </div>
-            <div class="counter-label">${c.label.replace('\n','<br>')}</div>
-        </div>
-    `).join('');
-}
-
-/* ─── Animated Count-up ────────────────────────────────── */
-function animateCounters() {
-    document.querySelectorAll('.count-up').forEach(el => {
-        const target = +el.dataset.target;
-        const duration = 1800;
-        const step = target / (duration / 16);
-        let current = 0;
-        const timer = setInterval(() => {
-            current = Math.min(current + step, target);
-            el.textContent = Math.floor(current).toLocaleString('en-IN');
-            if (current >= target) clearInterval(timer);
-        }, 16);
-    });
-}
-
-/* Trigger counter on scroll into view */
-let countersDone = false;
-const counterObs = new IntersectionObserver(entries => {
-    if (entries[0].isIntersecting && !countersDone) {
-        countersDone = true;
-        animateCounters();
-    }
-}, { threshold: 0.25 });
-
-/* ─── Render Work Cards ────────────────────────────────── */
-function renderWork() {
-    document.getElementById('work-grid').innerHTML = WORK_CARDS.map(c => `
-        <div class="work-card">
-            <div class="work-icon" style="background:${c.bg};color:${c.fg};">
-                <i class="${c.icon}"></i>
-            </div>
-            <h3>${c.title}</h3>
-            <p>${c.desc}</p>
-        </div>
-    `).join('');
-}
-
-/* ─── Render Activities ────────────────────────────────── */
-function renderActivities() {
-    document.getElementById('activities-grid').innerHTML = ACTIVITIES.map(a => `
-        <div class="activity-card">
-            <img src="${a.img}" class="activity-img" alt="${a.title}"
-                 onerror="this.outerHTML='<div class=\\'activity-img-placeholder\\'><i class=\\'${a.icon}\\'></i></div>'">
-            <div class="activity-body">
-                <div class="activity-tags">
-                    ${a.tags.map((t, i) => `<span class="tag ${a.tagClasses[i]}">${t}</span>`).join('')}
+            
+            <div class="space-y-6">
+                <div class="flex gap-4 items-start p-4 bg-white rounded-2xl border border-gray-100">
+                    <div class="w-10 h-10 bg-red-50 text-red-700 rounded-xl flex items-center justify-center flex-shrink-0"><i class="fas fa-map-marker-alt"></i></div>
+                    <div>
+                        <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">Office Address</p>
+                        <p class="text-base text-gray-800 font-semibold mt-1">346 Cha, Krishna Colony, Near Gayatri Shaktipeeth, Harihar Ganj, Fatehpur, Uttar Pradesh - 212601</p>
+                    </div>
                 </div>
-                <div class="activity-title">${a.title}</div>
-                <div class="activity-desc">${a.desc}</div>
-                <div class="activity-meta">
-                    <i class="fas fa-calendar-alt"></i> ${a.date}
+                <div class="flex gap-4 items-start p-4 bg-white rounded-2xl border border-gray-100">
+                    <div class="w-10 h-10 bg-red-50 text-red-700 rounded-xl flex items-center justify-center flex-shrink-0"><i class="fas fa-phone-alt"></i></div>
+                    <div>
+                        <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">Phone</p>
+                        <a href="tel:+919415494036" class="text-xl font-bold text-red-600 hover:underline block mt-1">+91 94154 94036</a>
+                    </div>
+                </div>
+                <div class="flex gap-4 items-start p-4 bg-white rounded-2xl border border-gray-100">
+                    <div class="w-10 h-10 bg-red-50 text-red-700 rounded-xl flex items-center justify-center flex-shrink-0"><i class="fas fa-envelope"></i></div>
+                    <div>
+                        <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">Email</p>
+                        <a href="mailto:jkmsftp@gmail.com" class="text-base font-semibold text-red-600 hover:underline block mt-1">jkmsftp@gmail.com</a>
+                    </div>
                 </div>
             </div>
         </div>
-    `).join('');
-}
+        <div class="rounded-[2.5rem] overflow-hidden shadow-xl border border-gray-100 h-96 lg:h-full min-h-[440px]">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3596.2238446261543!2d80.8222386!3d25.9279589!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399c0717e17cb97f%3A0xcbde1e3d3fa171a8!2sGayatri%20Shaktipeeth%20Fatehpur!5e0!3m2!1sen!2sin!4v1717160000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
 
-/* ─── Render Gallery ───────────────────────────────────── */
-function renderGallery() {
-    const grid = document.getElementById('gallery-grid');
-    for (let i = 1; i <= 10; i++) {
-        const div = document.createElement('div');
-        div.className = 'gallery-item';
-        div.innerHTML = `
-            <img src="j${i}.jpeg" alt="Field Activity ${i}"
-                 onerror="this.src='https://placehold.co/400x400/FEE2E2/B91C1C?text=JKMS+${i}'"
-                 onclick="openPhoto(this.src,'Field Activity ${i}')">
-        `;
-        grid.appendChild(div);
-    }
-}
+    <footer class="bg-gray-950 text-gray-500 py-16 border-t border-gray-900">
+        <div class="max-w-7xl mx-auto px-6 text-center space-y-4">
+            <p class="text-sm font-semibold text-gray-400">© 2026 Jan Kalyan Maha Samiti, Fatehpur. All Rights Reserved.</p>
+            [cite_start]<p class="text-xs font-medium max-w-md mx-auto leading-relaxed">Registered Under the Societies Registration Act[cite: 4]. [cite_start]Committed to comprehensive legal transparency, ethical resource routing, and sustainable grassroots development[cite: 9].</p>
+        </div>
+    </footer>
 
-/* ─── Photo Modal ──────────────────────────────────────── */
-function openPhoto(src, title) {
-    document.getElementById('modal-image').src = src;
-    document.getElementById('modal-title').textContent = title;
-    document.getElementById('photo-modal').classList.add('open');
-}
-function closeModal() {
-    document.getElementById('photo-modal').classList.remove('open');
-}
-document.getElementById('photo-modal').addEventListener('click', e => {
-    if (e.target === document.getElementById('photo-modal')) closeModal();
-});
+    <div id="photo-modal" class="hidden fixed inset-0 bg-black/95 z-[100] items-center justify-center p-4 backdrop-blur-xs" onclick="closeModal()">
+        <div class="max-w-4xl w-full bg-white rounded-[2rem] overflow-hidden shadow-2xl transition-all duration-300 transform scale-100" onclick="event.stopPropagation()">
+            <div class="flex justify-between items-center p-5 border-b border-gray-100 bg-white">
+                <h3 id="modal-title" class="font-bold text-lg text-gray-800">Photo Reference</h3>
+                <button onclick="closeModal()" class="text-3xl font-light text-gray-400 hover:text-gray-700 transition-colors leading-none p-2 rounded-full hover:bg-gray-50">×</button>
+            </div>
+            <div class="p-6 bg-[#fcfbf9] flex justify-center items-center">
+                <img id="modal-image" src="" class="max-w-full rounded-2xl max-h-[70vh] object-contain shadow-md border border-gray-100" alt="">
+            </div>
+        </div>
+    </div>
 
-/* ─── Search ───────────────────────────────────────────── */
-const SEARCH_INDEX = [
-    { label: 'About JKMS', href: '#about' },
-    { label: 'Director\'s Message — B.P. Pandey', href: '#director' },
-    { label: 'Women\'s Health & Empowerment', href: '#work' },
-    { label: 'Child Care & Protection', href: '#work' },
-    { label: 'Land Rights & Livelihoods', href: '#work' },
-    { label: 'HIV/AIDS Prevention Programs', href: '#work' },
-    { label: 'Recent Initiatives & Activities', href: '#activities' },
-    { label: 'Field Gallery', href: '#gallery' },
-    { label: 'Contact & Address', href: '#contact' },
-    { label: 'Phone: +91 94154 94036', href: 'tel:+919415494036' },
-    { label: 'Email: jkmsftp@gmail.com', href: 'mailto:jkmsftp@gmail.com' },
-];
+    <script>
+        function populateGallery() {
+            const grid = document.getElementById('gallery-grid');
+            if(!grid) return;
+            grid.innerHTML = '';
+            
+            for (let i = 1; i <= 10; i++) {
+                const imgName = `j${i}`;
+                const div = document.createElement('div');
+                div.className = 'gallery-card aspect-square bg-gray-100 cursor-pointer border border-gray-100 shadow-xs';
+                div.innerHTML = `
+                    <img src="${imgName}.jpeg" 
+                         alt="${imgName}"
+                         class="gallery-img w-full h-full object-cover block"
+                         onerror="this.src='https://placehold.co/600x600/fecaca/991b1b?text=JKMS+${imgName}'"
+                         onclick="openPhoto(this.src, this.alt)">
+                `;
+                grid.appendChild(div);
+            }
+        }
 
-function openSearch() {
-    document.getElementById('search-overlay').classList.add('open');
-    document.getElementById('search-input').focus();
-}
-function closeSearch(e) {
-    if (!e || e.target === document.getElementById('search-overlay')) {
-        document.getElementById('search-overlay').classList.remove('open');
-        document.getElementById('search-input').value = '';
-        document.getElementById('search-results').innerHTML = '';
-    }
-}
-function doSearch(query) {
-    const q = query.toLowerCase().trim();
-    const res = document.getElementById('search-results');
-    if (!q) { res.innerHTML = ''; return; }
-    const hits = SEARCH_INDEX.filter(item => item.label.toLowerCase().includes(q));
-    res.innerHTML = hits.length
-        ? hits.map(h => `<div class="search-result-item" onclick="goTo('${h.href}')"><i class="fas fa-arrow-right" style="font-size:.7rem;color:#B91C1C;margin-right:.5rem;"></i>${h.label}</div>`).join('')
-        : `<div class="search-result-item" style="color:#78716C;">No results found for "<strong>${query}</strong>"</div>`;
-}
-function goTo(href) {
-    closeSearch();
-    if (href.startsWith('#')) {
-        document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
-    } else {
-        window.location.href = href;
-    }
-}
-document.getElementById('search-input').addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeSearch();
-});
+        function openPhoto(src, alt) {
+            const modal = document.getElementById('photo-modal');
+            const modalImg = document.getElementById('modal-image');
+            const modalTitle = document.getElementById('modal-title');
+            
+            if (modal && modalImg && modalTitle) {
+                modalImg.src = src;
+                modalTitle.textContent = alt;
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+            }
+        }
 
-/* ─── Sticky Navbar Shadow ─────────────────────────────── */
-window.addEventListener('scroll', () => {
-    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 10);
-});
+        function closeModal() {
+            const modal = document.getElementById('photo-modal');
+            if (modal) {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                document.body.style.overflow = '';
+            }
+        }
 
-/* ─── Init ─────────────────────────────────────────────── */
-window.addEventListener('DOMContentLoaded', () => {
-    renderCounters();
-    renderWork();
-    renderActivities();
-    renderGallery();
-    counterObs.observe(document.querySelector('.impact-section'));
-});
-</script>
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        window.onload = populateGallery;
+    </script>
 </body>
 </html>
+
+```
